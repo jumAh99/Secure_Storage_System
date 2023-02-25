@@ -16,21 +16,25 @@
             //CHECK FOR PARTIALLY UPLOADED FILE
             case UPLOAD_ERR_PARTIAL:
                 exit("Ops seems like upload was not correctly done."); 
-                break; 
             case UPLOAD_ERR_NO_FILE:
                 exit("Ops, seems like you have not submitted anything!."); 
-                break;
             case UPLOAD_ERR_EXTENSION:
                 exit("Ops, there is a conflicting extension."); 
-                break;
             case UPLOAD_ERR_FORM_SIZE: 
                 exit("Ops, file is too large!");
-                break; 
             default:
                 exit("Ops, I cant figure out the error!"); 
-                break; 
         }
     }
+
+    //CREATE AN ARRAY OF SUPPORTED FILE TYPES 
+    $mime_types = ["image/gif", "image/png", "image/jpeg"]; 
+
+    //CHECK QWATHER THE FILE UPLOADED IS PART OF THE ARRAY
+    if(!in_array(($_FILES["image"]["type"]), $mime_types)){
+        exit("Ops, the file is not supported!");
+    }
+
     //VIEW FILE ARRAY 
     print_r($_FILES);
 ?>
