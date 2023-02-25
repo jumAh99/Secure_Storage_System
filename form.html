@@ -10,9 +10,13 @@
     <h1>
         PHP File Uploads
     </h1>
-    <form method="post" enctype="multipart/form-data">
+    <form method="post" enctype="multipart/form-data" action="php/process-form-logic.php">
         <label for="image">Select File</label>
-        <input type="file" id="image">
+        <input type="file" id="image" name="image">
+
+        <label for="file2">Select File</label>
+        <input type="file" id="file2" name="file2">
+
         <button>Upload</button>
     </form>
 </body>
