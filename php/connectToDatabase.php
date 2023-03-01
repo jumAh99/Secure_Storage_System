@@ -1,8 +1,11 @@
 <?php
     //VARIABALE FOR THE DB SERVER NAME
     $serverHostName="localhost"; 
+    //USING XAMPP UN IS ALWAYS ROOT
     $serverUserName = "root";
+    //NO PASSWORD IF LOCAL
     $serverPassword=""; 
+    //NAME FOR THE DATABASE
     $serverDatabseName = "file_storage_database"; 
 
     //CONNECT TO DATABASE WHICH WILL RETEUN AN OBJ RAPRESENTING THE DATABASE CONNECTION
