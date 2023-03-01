@@ -1,3 +1,4 @@
+
 <?php
     //HAS DATA BEEN REQUESTED TO THE SERVER
     if($_SERVER["REQUEST_METHOD"] !=="POST"){
