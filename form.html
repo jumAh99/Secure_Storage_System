@@ -8,18 +8,19 @@
 </head>
 <body>
     <h1>
-        PHP File Uploads
+        Secure file Upload
     </h1>
     <!-- MAIN FORM WHERE THE USER WILL UPLOAD FILES -->
     <form method="post" enctype="multipart/form-data" action="php/process-form-logic.php">
         <!-- FIELD THAT ASSESS WEATHER FILE IS TOO BIG-->
         <!-- <input type="hidden" name="MAX_FILE_SIZE" value="1048576">
         <!-- INPUT FIELD TO SELECT FILE-->
-        <label for="image">Select File</label>
+        <label for="file">Select File</label>
         <!-- INPUT FIELD TO VIEW FILE NAME -->
-        <input type="file" id="image" name="image">
+        <input type="file" id="file" name="file">
         <!-- BUTTON TO UPLOAD THE FORM AND FILES -->
-        <button>Upload</button>
+        <input type="submit" name="submit">
+
     </form>
 </body>
 </html>
