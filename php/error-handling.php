@@ -54,7 +54,7 @@ function invalidPassword($password, $repeatPassword){
 //CHECK IF THE USER IS ALREDY PRESENT IN THE DATABASE
 function userAlreadyExists($connectionObject, $username, $email){ 
     //CONNECT TO THE DATABASE TO CHECK IF THE USER IS PRESENT 
-    $sql = "SELECT * FROM tb_user_login_info WHERE userUID = ?;"; //? IS A PLACEHOLDER
+    $sql = "SELECT * FROM tb_user_login_info WHERE userUID=? OR userEmail=?;"; //? IS A PLACEHOLDER
 
     /*PREPARED STATEMENT TO SEND SQL FIRST THEN DATA TO AVOID SQL INJEC
     SEND SQL FIRST AND THEN THE USER INPUT SO THE INPUT IS NOT RUNNED AS CODE*/
