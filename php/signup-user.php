@@ -14,11 +14,42 @@ if(isset($_POST["submit"])){
     require_once 'connect-to-database.php'; 
     //GET THE ERROR HANDLING FUNCTION FILE
     require_once 'error-handling.php'; 
+    //GET THE SIGNUP UTIL FUNCTIONS
+    require_once 'signup-util-function.php'; 
 
     //IF THE USER LEFT ANY FIELDS BLANK
-    if(emptyInputSignup() !== false){
-        
+    if(emptyInputSignup($username, $email, $password, $repeatPassword) !== false){
+        //ADD THE ERROR TYPE TO URL SO WE CAN USE THAT AS A MESSAGE
+        header("location: ../signup.html?emptyInput");
+        exit(); 
     }
+    //IF THE USERNAME IS INVALID 
+    if(invalidUsername($username) !== false){
+        //ADD THE ERROR TYPE TO URL SO WE CAN USE THAT AS A MESSAGE
+        header("location: ../signup.html?invalidUsername");
+        exit(); 
+    }
+    //IF THE EMAIL IS INVALID
+    if(invalidEmail($email) !== false){
+        //ADD THE ERROR TYPE TO URL SO WE CAN USE THAT AS A MESSAGE
+        header("location: ../signup.html?invalidEmail");
+        exit(); 
+    }
+    //THE PASSWORD DO NOT MATCH
+    if(invalidPassword($password, $repeatPassword) !== false){
+        //ADD THE ERROR TYPE TO URL SO WE CAN USE THAT AS A MESSAGE
+        header("location: ../signup.html?passwordDoNotMatch");
+        exit(); 
+    }
+    //THE USER ALREADY EXISTS
+    if(userAlreadyExists($connectionObject, $username, $email) !== false){
+        //ADD THE ERROR TYPE TO URL SO WE CAN USE THAT AS A MESSAGE
+        header("location: ../signup.html?userAlreadyExists");
+        exit(); 
+    }
+    //CREATE THE USER 
+    createUser($connectionObject, $username, $email, $password, $repeatPassword); 
 }else{
     header("location: ../signup.html");
+    exit(); 
 }
