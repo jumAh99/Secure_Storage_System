@@ -11,10 +11,10 @@ function createUser($connectionObject, $username, $email, $password){
     //CHECK IF THE STATEMENT HAS ANY ERRORS
     if(!mysqli_stmt_prepare($sql_prepared_statement, $sql)){
         //SEND USER BACK TO SIGNUP PAGE
-        header("location: ../signup.html?stmtFailed");
+        header("location: ../signup.php?stmtFailed");
         exit(); 
     }
-    //HASH THE PASSWORD TO THE ENCRYPTED PASSWORD IS NOT VISSIBLE INTO THE DATABASE
+    //HASH THE PASSWORD SO THE ENCRYPTED PASSWORD IS NOT VISSIBLE INTO THE DATABASE
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT); //THE METHOD IS AUTOMATICALLY UPDATED TO THE NEWEST VERSION AGAINST THREATS
     //MAKE THE CONNECTION
     mysqli_stmt_bind_param($sql_prepared_statement, "sss" /*type:STRING*/, $username, $email, $hashedPassword); 
@@ -24,6 +24,6 @@ function createUser($connectionObject, $username, $email, $password){
     mysqli_stmt_close($sql_prepared_statement); 
 
     //MAKE THE USER GO BACK TO THE LOGIN PAGE SO THEY CAN AUTHENTICATE 
-    header("location: ../signup.html?error=none");
+    header("location: ../signup.php?error=none");
     exit(); 
 }

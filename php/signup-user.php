@@ -20,36 +20,36 @@ if(isset($_POST["submit"])){
     //IF THE USER LEFT ANY FIELDS BLANK
     if(emptyInputSignup($username, $email, $password, $repeatPassword) !== false){
         //ADD THE ERROR TYPE TO URL SO WE CAN USE THAT AS A MESSAGE
-        header("location: ../signup.html?error=emptyInput");
+        header("location: ../signup.php?error=emptyInput");
         exit(); 
     }
     //IF THE USERNAME IS INVALID 
     if(invalidUsername($username) !== false){
         //ADD THE ERROR TYPE TO URL SO WE CAN USE THAT AS A MESSAGE
-        header("location: ../signup.html?error=invalidUsername");
+        header("location: ../signup.php?error=invalidUsername");
         exit(); 
     }
     //IF THE EMAIL IS INVALID
     if(invalidEmail($email) !== false){
         //ADD THE ERROR TYPE TO URL SO WE CAN USE THAT AS A MESSAGE
-        header("location: ../signup.html?invalidEmail");
+        header("location: ../signup.php?invalidEmail");
         exit(); 
     }
     //THE PASSWORD DO NOT MATCH
     if(invalidPassword($password, $repeatPassword) !== false){
         //ADD THE ERROR TYPE TO URL SO WE CAN USE THAT AS A MESSAGE
-        header("location: ../signup.html?error=passwordDoNotMatch");
+        header("location: ../signup.php?error=passwordDoNotMatch");
         exit(); 
     }
     //THE USER ALREADY EXISTS
     if(userAlreadyExists($connectionObject, $username, $email) !== false){
         //ADD THE ERROR TYPE TO URL SO WE CAN USE THAT AS A MESSAGE
-        header("location: ../signup.html?error=userAlreadyExists");
+        header("location: ../signup.php?error=userAlreadyExists");
         exit(); 
     }
     //CREATE THE USER 
     createUser($connectionObject, $username, $email, $password); 
 }else{
-    header("location: ../signup.html");
+    header("location: ../signup.php");
     exit(); 
 }
