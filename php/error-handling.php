@@ -12,6 +12,19 @@ function emptyInputSignup($username, $email, $password, $repeatPassword){
     //RETURN THE VALUE
     return $isSomethingWrong; 
 }
+//LOGIN PAGE EMPTY INPUT CHECK 
+function emptyInputLogin($username, $password){
+    //IF ANY OF THE VARIBALE ARE EMPTY
+    if(empty($username) || empty($password)){
+        //MAKE THE RESULT TRUE BECAUSE THERE IS AN ERROR
+        $isSomethingWrong = true; 
+    }else{
+        //THERE IS NOTHING WRONG
+        $isSomethingWrong = false;
+    }
+    //RETURN THE VALUE
+    return $isSomethingWrong; 
+}
 //CHECK IF THE USERNAME IS IN THE CORRECT FORMAT
 function invalidUsername($username){ 
     //IF THE USERNAME HAS SOME STRANGE CHARACTERS IN IT

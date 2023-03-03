@@ -15,7 +15,7 @@ if(isset($_POST["submit"])){
     //GET THE ERROR HANDLING FUNCTION FILE
     require_once 'error-handling.php'; 
     //GET THE SIGNUP UTIL FUNCTIONS
-    require_once 'signup-util-function.php'; 
+    require_once 'authentication-util-function.php'; 
 
     //IF THE USER LEFT ANY FIELDS BLANK
     if(emptyInputSignup($username, $email, $password, $repeatPassword) !== false){

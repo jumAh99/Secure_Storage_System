@@ -3,8 +3,8 @@
     <form action="php/signup-user.php" method="post">
         <input type="text" name="username" placeholder="Username..">
         <input type="email" name="email" placeholder="Enter Email..">
-        <input type="text" name="password" placeholder="Password..">
-        <input type="text" name="repeatPassword" placeholder="Type password again..">
+        <input type="password" name="password" placeholder="Password..">
+        <input type="password" name="repeatPassword" placeholder="Type password again..">
         <button type="submit" name="submit">Sign Up</button>
     </form>
     <!--ERROR MESSAGES WHEN SOMETHING GOES WRONG!-->
