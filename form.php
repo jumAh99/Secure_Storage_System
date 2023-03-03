@@ -1,3 +1,8 @@
+<?php
+    //START THE SESSION 
+    session_start(); 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,12 +20,17 @@
         <!-- FIELD THAT ASSESS WEATHER FILE IS TOO BIG-->
         <!-- <input type="hidden" name="MAX_FILE_SIZE" value="1048576">-->
         <!-- INPUT FIELD TO SELECT FILE-->
-        <label for="file">Select File</label>
-        <!-- INPUT FIELD TO VIEW FILE NAME -->
-        <input type="file" id="file" name="file">
-        <!-- BUTTON TO UPLOAD THE FORM AND FILES -->
-        <input type="submit" name="submit">
-
-    </form>
+            <!-- CHECK IF THE USER IS LOGGED IN -->
+    <?php
+        if(isset($_SESSION["userUID"])){
+            echo "<label for=\"file\">Select File</label>"; 
+            echo "<input type=\"file\" id=\"file\" name=\"file\">"; 
+            echo"<input type=\"submit\" name=\"submit\">"; 
+            echo "<a href='php/logout-user.php'>LogOut</a>";
+        }else{
+            echo "<a href='signup.php'>Register!</a>"; 
+        }
+    ?>
+    </form?
 </body>
 </html>
