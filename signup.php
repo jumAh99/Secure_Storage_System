@@ -6,6 +6,7 @@
         <input type="password" name="password" placeholder="Password..">
         <input type="password" name="repeatPassword" placeholder="Type password again..">
         <button type="submit" name="submit">Sign Up</button>
+        <li><a href='login.php'>Login!</a></li> 
     </form>
     <!--ERROR MESSAGES WHEN SOMETHING GOES WRONG!-->
     <?php
@@ -16,7 +17,7 @@
                 //IF THE VALUE IS AN EMPTY INPUT
                 case "emptyInput":
                     //PRINT OUT AN HTML PHRAGRAPH THAT CONVEYS THE MISTAKE
-                    exit("<p>ONE OF THE ELEMENTS ARE MISISNG!</p>"); 
+                    exit("<p>YOU HAVE MISSED SOMETHING!</p>"); 
                     break; 
                 //IF THE USERNAME IS IN A INVALID FORMAT
                 case "invalidUsername":
@@ -31,7 +32,7 @@
                 //IF THE USERNAME IS IN A INVALID FORMAT
                 case "passwordDoNotMatch":
                     //PRINT OUT AN HTML PHRAGRAPH THAT CONVEYS THE MISTAKE
-                    exit("<p>THE PASSWORDS DO NOT MATCH!</p>");
+                    exit("<p>THE PASSWORD DOES NOT MATCH!</p>");
                     break; 
                 //IF THE USERNAME IS IN A INVALID FORMAT
                 case "userAlreadyExists":

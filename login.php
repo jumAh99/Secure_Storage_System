@@ -15,7 +15,7 @@
             //IF THE VALUE IS AN EMPTY INPUT
             case "emptyInput":
                 //PRINT OUT AN HTML PHRAGRAPH THAT CONVEYS THE MISTAKE
-                exit("<p>ONE OF THE ELEMENTS ARE MISISNG!</p>"); 
+                exit("<p>YOU HAVE MISSED SOMETHING!</p>"); 
                 break; 
             //IF THE VALUE IS AN EMPTY INPUT
             case "invalidCredentials":

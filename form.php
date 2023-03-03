@@ -28,7 +28,8 @@
             echo"<input type=\"submit\" name=\"submit\">"; 
             echo "<a href='php/logout-user.php'>LogOut</a>";
         }else{
-            echo "<a href='signup.php'>Register!</a>"; 
+            echo "<li><a href='signup.php'>Register!</a></li>"; 
+            echo"<li><a href='login.php'>Login!</a></li>"; 
         }
     ?>
     </form?
