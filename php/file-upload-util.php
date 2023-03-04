@@ -1,5 +1,5 @@
 <?php
-function uploadFile($connectionObject, $userID, $fileName, $fileDate, $fileSize, $fileTime){
+function uploadFileSQLRecord($connectionObject, $userID, $fileName, $fileDate, $fileSize, $fileTime){
     //INSERT THE FILE INFORMATION INTO THE DATABASE
     $sql= "INSERT INTO tb_file_details (userID, fileName, uploadDate, fileSize, uploadTime) VALUES (?,?,?,?,?)"; 
 

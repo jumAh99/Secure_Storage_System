@@ -7,13 +7,13 @@ if(isset($_POST["submit"])){
     $password = $_POST["password"]; 
 
     //GET THE DATABSE CONNECTION FILE 
-    require_once 'connect-to-database.php'; 
+    REQUIRE_ONCE 'connect-to-database.php'; 
     //GET THE ERROR HANDLING FILE 
-    require_once 'login-error-handling.php'; 
+    REQUIRE_ONCE 'login-error-handling.php'; 
     //GET THE ERROR HANDLING FILE 
-    require_once 'signup-error-handling.php';
+    REQUIRE_ONCE 'signup-error-handling.php';
     //GET THE SIGNUP UTIL FUNCTIONS FILE
-    require_once 'authentication-util-function.php'; 
+    REQUIRE_ONCE 'authentication-util-function.php'; 
 
     //IF THE USER LEFT ANY FIELDS BLANK
     if(emptyInputLogin($username, $password) !== false){

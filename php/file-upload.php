@@ -8,12 +8,6 @@ session_start();//START THE SESSION
 
 if(isset($_SESSION["userID"])){
     if(isset($_POST["submit"])){
-        //HAS DATA BEEN REQUESTED TO THE SERVER
-        if($_SERVER["REQUEST_METHOD"] !=="POST"){
-            //EXIT THE SCRIPT AND OUTPUT ERROR MESSAGE
-            exit("Ops, POST request has not been issued!"); 
-        }
-    
         //MAKE SURE THAT THE FILE ARRAY IS CORRECTLY FORMATTED
         if(empty($_FILES)){
             exit("Ops, seems like the files was not selected properly!"); 
@@ -57,16 +51,16 @@ if(isset($_SESSION["userID"])){
                     exit(); 
             }
         }
-    
+
         //GET THE FILE INFORMATION TO ASSESS WEATHER THE FILE UPLOADED IS SAFE 
         $fileInfo = new finfo(FILEINFO_MIME_TYPE);
         $mime_type = $fileInfo->file($_FILES["file"]["tmp_name"]); 
-    
+
         //CREATE AN ARRAY OF SUPPORTED FILE TYPES 
         $fileExt = explode('.', $_FILES['file']['name']); 
         $filesPresentInTheFolder = strtolower(end($fileExt)); 
         $mime_types = ["gif", "png", "jpeg","jpg", "txt"]; 
-    
+
         //CHECK QWATHER THE FILE UPLOADED IS PART OF THE ARRAY
         if(!in_array($filesPresentInTheFolder, $mime_types)){
             exit("Ops, the file is not supported!");
@@ -80,28 +74,31 @@ if(isset($_SESSION["userID"])){
         //GET THE TEMP FILE NAME ASSIGNED TO THE FILE WHEN UPLOADED TO SERVER
         $fileName = $base . "." . $pathInfo["extension"]; 
         //ABSOLUTE PATH TO THE DESTINATION FOLDER
-        $destinationPath = __DIR__ . "/../uploads/" . $fileName; 
-    
+        if(!is_dir(__DIR__ . "/../uploads/" . $_SESSION["userUID"])){
+            mkdir(__DIR__ . "/../uploads/" . $_SESSION["userUID"], 0777, true);  
+        }
+        $destinationPathUser = __DIR__ . "/../uploads/" . $_SESSION["userUID"] . "/" .  $fileName; 
+
         //INSERT THE FILE INFORMATION INTO THE DATABASE
         $fileDate =  date('Y-m-d'); 
         $fileTime = date("h:i:s");
         $fileSize = round(filesize($_FILES["file"]["tmp_name"])/1024/1024,2); 
         //MAKE THE PREPARED STATEMENT
-        uploadFile($connectionObject, $_SESSION["userID"], $fileName, $fileDate, $fileSize, $fileTime); 
-    
+        uploadFileSQLRecord($connectionObject, $_SESSION["userID"], $fileName, $fileDate, $fileSize, $fileTime); 
+
         //CHECK WEATHER THE FILE NAME ALREADY EXISTS IN THE FOLDER 
         $temp = 1;
         //LOOP TROUGH ALL THE FILES PRESENT CURRENTLY IN THE FOLDER 
-        while(file_exists(($destinationPath))){
+        while(file_exists(($destinationPathUser))){
             $fileName = $base . "($temp)." . $pathInfo["extension"]; 
             //RECREATE THE DESTINATION 
-            $destinationPath = __DIR__ . "/../uploads/" . $fileName; 
+            $destinationPathUser = __DIR__ . "/../uploads/" . $_SESSION["userUID"] . "/". $fileName; 
             //INCREMENT THE INDEX GIVE THE NEXT FILE A DIFFERNT NUMERIC NAME
             $temp++; 
         }
-        if( ! move_uploaded_file($_FILES["file"]["tmp_name"], $destinationPath)){
+        if( ! move_uploaded_file($_FILES["file"]["tmp_name"], $destinationPathUser)){
             //ADD THE ERROR TYPE TO URL SO WE CAN USE THAT AS A MESSAGE
-            header("location: ../form.php?error=file_partia");
+            header("location: ../form.php?error=file_partial");
             exit(); 
         }
         //IF UPLOAD WAS SUCECSSFUL THEN PRINT IT 
@@ -110,6 +107,6 @@ if(isset($_SESSION["userID"])){
     }
 }else{
     //IF UPLOAD WAS SUCECSSFUL THEN PRINT IT 
-    header("location: ../form.php?error=session_not_set");
+    header("location: ../login.php?error=session_not_set");
     exit(); 
 }
