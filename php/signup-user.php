@@ -13,7 +13,7 @@ if(isset($_POST["submit"])){
     //GET THE CONNECTION PHP FILE 
     require_once 'connect-to-database.php'; 
     //GET THE ERROR HANDLING FUNCTION FILE
-    require_once 'error-handling.php'; 
+    require_once 'signup-error-handling.php'; 
     //GET THE SIGNUP UTIL FUNCTIONS
     require_once 'authentication-util-function.php'; 
 

@@ -9,7 +9,9 @@ if(isset($_POST["submit"])){
     //GET THE DATABSE CONNECTION FILE 
     require_once 'connect-to-database.php'; 
     //GET THE ERROR HANDLING FILE 
-    require_once 'error-handling.php'; 
+    require_once 'login-error-handling.php'; 
+    //GET THE ERROR HANDLING FILE 
+    require_once 'signup-error-handling.php';
     //GET THE SIGNUP UTIL FUNCTIONS FILE
     require_once 'authentication-util-function.php'; 
 

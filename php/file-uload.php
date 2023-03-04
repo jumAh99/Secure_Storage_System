@@ -1,5 +1,6 @@
 <?php
-include 'connect-to-database.php';
+REQUIRE_ONCE 'connect-to-database.php';
+REQUIRE_ONCE 'file-upload-util.php'; 
 
 if(isset($_POST["submit"])){
     //HAS DATA BEEN REQUESTED TO THE SERVER
@@ -17,24 +18,38 @@ if(isset($_POST["submit"])){
         switch($_FILES["file"]["error"]){
             //CHECK FOR PARTIALLY UPLOADED FILE
             case UPLOAD_ERR_PARTIAL:
-                exit("Ops seems like upload was not correctly done.");
+                //ADD THE ERROR TYPE TO URL SO WE CAN USE THAT AS A MESSAGE
+                header("location: ../form.php?error=file_partial");
+                exit(); 
             //IF NO FILE HAS BEEN SUBMITTED 
             case UPLOAD_ERR_NO_FILE:
-                exit("Ops, seems like you have not submitted anything!."); 
+                //ADD THE ERROR TYPE TO URL SO WE CAN USE THAT AS A MESSAGE
+                header("location: ../form.php?error=no_file");
+                exit(); 
             //IF THERE WAS A PROBLEM WITH THE PHP EXTENSION
             case UPLOAD_ERR_EXTENSION:
-                exit("Ops, there is a conflicting extension."); 
+                //ADD THE ERROR TYPE TO URL SO WE CAN USE THAT AS A MESSAGE
+                header("location: ../form.php?error=err_extension");
+                exit(); 
             //IF THERE WAS A PROBLEM WITH THE SIZE OF THE FILE
             case UPLOAD_ERR_FORM_SIZE: 
-                exit("Ops, file is too large!");
+                //ADD THE ERROR TYPE TO URL SO WE CAN USE THAT AS A MESSAGE
+                header("location: ../form.php?error=invalid_size");
+                exit(); 
             //IF FILE CANNOT BE SAVED
             case UPLOAD_ERR_CANT_WRITE:
-                exit("Ops, looks like there was a problem during writing!");  
+                //ADD THE ERROR TYPE TO URL SO WE CAN USE THAT AS A MESSAGE
+                header("location: ../form.php?error=cant_write");
+                exit(); 
             //IF TEMP FILE CANNOT BE FOUND 
             case UPLOAD_ERR_NO_TMP_DIR:
-                exit("Ops, the tmp file cannot be found!"); 
+                //ADD THE ERROR TYPE TO URL SO WE CAN USE THAT AS A MESSAGE
+                header("location: ../form.php?error=no_tmp_dir");
+                exit(); 
             default:
-                exit("Ops, I cant figure out the error!"); 
+                //ADD THE ERROR TYPE TO URL SO WE CAN USE THAT AS A MESSAGE
+                header("location: ../form.php?error=cannot_find_error");
+                exit(); 
         }
     }
 
@@ -66,8 +81,8 @@ if(isset($_POST["submit"])){
     $fileDate =  date('Y-m-d'); 
     $fileTime = date("h:i:s");
     $fileSize = round(filesize($_FILES["file"]["tmp_name"])/1024/1024,2); 
-    $sql="INSERT INTO tb_file_details(Name, Date, Size, Time) VALUES ('$fileName','$fileDate','$fileSize', '$fileTime');"; 
-    mysqli_query($connectionObject, $sql); 
+    //MAKE THE PREPARED STATEMENT
+    uploadFile($connectionObject, $fileName, $fileDate, $fileSize, $fileTime); 
 
     //CHECK WEATHER THE FILE NAME ALREADY EXISTS IN THE FOLDER 
     $temp = 1;
@@ -81,7 +96,11 @@ if(isset($_POST["submit"])){
     }
     if( ! move_uploaded_file($_FILES["file"]["tmp_name"], $destinationPath)){
         exit("Ops, looks like the upload was not successful!");
+        //ADD THE ERROR TYPE TO URL SO WE CAN USE THAT AS A MESSAGE
+        header("location: ../form.php?error=file_partia");
+        exit(); 
     }
-    //IF UPLOAD WAS SUCECSSFUL THEN PRINT IT
-    echo "UPLOAD SUCCESSFUL!"; 
+    //IF UPLOAD WAS SUCECSSFUL THEN PRINT IT 
+    header("location: ../form.php?error=none");
+    exit(); 
 }
