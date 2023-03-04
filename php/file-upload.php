@@ -81,7 +81,7 @@ if(isset($_SESSION["userID"])){
 
         //INSERT THE FILE INFORMATION INTO THE DATABASE
         $fileDate =  date('Y-m-d'); 
-        $fileTime = date("h:i:s");
+        $fileTime = date("h:i:s", strtotime('-1 hour'));
         $fileSize = round(filesize($_FILES["file"]["tmp_name"])/1024/1024,2); 
         //MAKE THE PREPARED STATEMENT
         uploadFileSQLRecord($connectionObject, $_SESSION["userID"], $fileName, $fileDate, $fileSize, $fileTime); 
