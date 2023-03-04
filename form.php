@@ -16,7 +16,7 @@
         Secure file Upload
     </h1>
     <!-- MAIN FORM WHERE THE USER WILL UPLOAD FILES -->
-    <form method="post" enctype="multipart/form-data" action="php/file-uload.php">
+    <form method="post" enctype="multipart/form-data" action="php/file-upload.php">
         <!-- FIELD THAT ASSESS WEATHER FILE IS TOO BIG-->
         <!-- <input type="hidden" name="MAX_FILE_SIZE" value="1048576">-->
         <!-- INPUT FIELD TO SELECT FILE-->
@@ -24,7 +24,8 @@
     
     <!-- CHECK IF THE USER IS LOGGED IN -->
     <?php
-        if(isset($_SESSION["userUID"])){
+        if(isset($_SESSION["userID"])){
+            echo $_SESSION["userUID"];
             echo "<label for=\"file\">Select File</label>"; 
             echo "<input type=\"file\" id=\"file\" name=\"file\">"; 
             echo"<input type=\"submit\" name=\"submit\">"; 
