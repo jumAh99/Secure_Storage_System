@@ -18,7 +18,7 @@ if(isset($_POST["submit"])){
     //IF THE USER LEFT ANY FIELDS BLANK
     if(emptyInputLogin($username, $password) !== false){
         //ADD THE ERROR TYPE TO URL SO WE CAN USE THAT AS A MESSAGE
-        header("location: ../login.php?error=emptyInput");
+        header("location: ../login?error=emptyInput");
         exit(); 
     }
 
@@ -26,6 +26,6 @@ if(isset($_POST["submit"])){
     loginUser($connectionObject, $username, $password); 
 }else{
     //SEND THE USER BACK TO THE LOGIN FORM
-    header("location: ../login.php");
+    header("location: ../login");
     exit(); 
 }

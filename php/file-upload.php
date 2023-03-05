@@ -17,36 +17,36 @@ if(isset($_SESSION["userID"])){
                 //CHECK FOR PARTIALLY UPLOADED FILE
                 case UPLOAD_ERR_PARTIAL:
                     //ADD THE ERROR TYPE TO URL SO WE CAN USE THAT AS A MESSAGE
-                    header("location: ../form.php?error=file_partial");
+                    header("location: ../form?error=file_partial");
                     exit(); 
                 //IF NO FILE HAS BEEN SUBMITTED 
                 case UPLOAD_ERR_NO_FILE:
                     //ADD THE ERROR TYPE TO URL SO WE CAN USE THAT AS A MESSAGE
-                    header("location: ../form.php?error=no_file");
+                    header("location: ../form?error=no_file");
                     exit(); 
                 //IF THERE WAS A PROBLEM WITH THE PHP EXTENSION
                 case UPLOAD_ERR_EXTENSION:
                     //ADD THE ERROR TYPE TO URL SO WE CAN USE THAT AS A MESSAGE
-                    header("location: ../form.php?error=err_extension");
+                    header("location: ../form?error=err_extension");
                     exit(); 
                 //IF THERE WAS A PROBLEM WITH THE SIZE OF THE FILE
                 case UPLOAD_ERR_FORM_SIZE: 
                     //ADD THE ERROR TYPE TO URL SO WE CAN USE THAT AS A MESSAGE
-                    header("location: ../form.php?error=invalid_size");
+                    header("location: ../form?error=invalid_size");
                     exit(); 
                 //IF FILE CANNOT BE SAVED
                 case UPLOAD_ERR_CANT_WRITE:
                     //ADD THE ERROR TYPE TO URL SO WE CAN USE THAT AS A MESSAGE
-                    header("location: ../form.php?error=cant_write");
+                    header("location: ../form?error=cant_write");
                     exit(); 
                 //IF TEMP FILE CANNOT BE FOUND 
                 case UPLOAD_ERR_NO_TMP_DIR:
                     //ADD THE ERROR TYPE TO URL SO WE CAN USE THAT AS A MESSAGE
-                    header("location: ../form.php?error=no_tmp_dir");
+                    header("location: ../form?error=no_tmp_dir");
                     exit(); 
                 default:
                     //ADD THE ERROR TYPE TO URL SO WE CAN USE THAT AS A MESSAGE
-                    header("location: ../form.php?error=cannot_find_error");
+                    header("location: ../form?error=cannot_find_error");
                     exit(); 
             }
         }
@@ -63,7 +63,7 @@ if(isset($_SESSION["userID"])){
         //CHECK QWATHER THE FILE UPLOADED IS PART OF THE ARRAY
         if(!in_array($filesPresentInTheFolder, $mime_types)){
             //ADD THE ERROR TYPE TO URL SO WE CAN USE THAT AS A MESSAGE
-            header("location: ../form.php?error=bad_file");
+            header("location: ../form?error=bad_file");
             exit(); 
         }
         //SPLIT THE FILE NAME INTO DIFFERENT PARTS 
@@ -99,15 +99,15 @@ if(isset($_SESSION["userID"])){
         }
         if( ! move_uploaded_file($_FILES["file"]["tmp_name"], $destinationPathUser)){
             //ADD THE ERROR TYPE TO URL SO WE CAN USE THAT AS A MESSAGE
-            header("location: ../form.php?error=file_partial");
+            header("location: ../form?error=file_partial");
             exit(); 
         }
         //IF UPLOAD WAS SUCECSSFUL THEN PRINT IT 
-        header("location: ../form.php?error=none");
+        header("location: ../form?error=none");
         exit(); 
     }
 }else{
     //IF UPLOAD WAS SUCECSSFUL THEN PRINT IT 
-    header("location: ../login.php?error=session_not_set");
+    header("location: ../login?error=session_not_set");
     exit(); 
 }

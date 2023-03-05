@@ -11,7 +11,7 @@ function createUser($connectionObject, $username, $email, $password){
     //CHECK IF THE STATEMENT HAS ANY ERRORS
     if(!mysqli_stmt_prepare($sql_prepared_statement, $sql)){
         //SEND USER BACK TO SIGNUP PAGE
-        header("location: ../signup.php?stmtFailed");
+        header("location: ../signup?stmtFailed");
         exit(); 
     }
     //HASH THE PASSWORD SO THE ENCRYPTED PASSWORD IS NOT VISSIBLE INTO THE DATABASE
@@ -24,7 +24,7 @@ function createUser($connectionObject, $username, $email, $password){
     mysqli_stmt_close($sql_prepared_statement); 
 
     //MAKE THE USER GO BACK TO THE LOGIN PAGE SO THEY CAN AUTHENTICATE 
-    header("location: ../login.php?error=none");
+    header("location: ../login?error=none");
     exit(); 
 }
 //ALLOW THE USER TO LOGIN
@@ -34,7 +34,7 @@ function loginUser($connectionObject, $username, $password){
     //IF THE RETUN VALUE IS FALSE
     if($presentUser == false){
         //MAKE THE USER GO BACK TO THE LOGIN PAGE SO THEY CAN AUTHENTICATE 
-        header("location: ../login.php?error=invalidCredentials");
+        header("location: ../login?error=invalidCredentials");
         exit(); 
     }
     //PASSWORD IN THE ASSOCIATIVE ARRAY AND ASSIGN THE VALUE
@@ -45,7 +45,7 @@ function loginUser($connectionObject, $username, $password){
     //IF THE PASSWORD GIVEN MATCHES TO THE HASHED PASSWORD
     if($checkPassword == false){
         //SEND THE USER BACK WITH AN ERROR MESSAGE
-        header("location: ../login.php?error=invalidCredentials");
+        header("location: ../login?error=invalidCredentials");
         exit(); 
     }else if($checkPassword == true){
         //LOGIN THE USER INTO THE WEBSITE WITH A NEW SESSION
@@ -54,7 +54,7 @@ function loginUser($connectionObject, $username, $password){
         $_SESSION["userID"] =  $presentUser["userID"]; 
         //GET THE USERNAME FROM THE DATABASE
         $_SESSION["userUID"] =  $presentUser["userUID"]; 
-        header("location: ../form.php");
+        header("location: ../form");
         exit(); 
     }
 }

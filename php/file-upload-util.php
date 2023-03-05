@@ -6,7 +6,7 @@ function uploadFileSQLRecord($connectionObject, $userID, $fileName, $fileDate, $
     $sql_prepared_statement = mysqli_stmt_init($connectionObject); 
     if(!mysqli_stmt_prepare($sql_prepared_statement, $sql)){
         //SEND USER BACK TO SIGNUP PAGE
-        header("location: ../form.php?stmtFailed");
+        header("location: ../form?stmtFailed");
         exit(); 
     }
     //MAKE THE CONNECTION
