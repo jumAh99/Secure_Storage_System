@@ -1,10 +1,9 @@
 <?php
+//START THE SESSION 
+session_start();//START THE SESSION 
 
 REQUIRE_ONCE 'connect-to-database.php';
 REQUIRE_ONCE 'file-upload-util.php'; 
-
-//START THE SESSION 
-session_start();//START THE SESSION 
 
 if(isset($_SESSION["userID"])){
     if(isset($_POST["submit"])){
@@ -63,7 +62,9 @@ if(isset($_SESSION["userID"])){
 
         //CHECK QWATHER THE FILE UPLOADED IS PART OF THE ARRAY
         if(!in_array($filesPresentInTheFolder, $mime_types)){
-            exit("Ops, the file is not supported!");
+            //ADD THE ERROR TYPE TO URL SO WE CAN USE THAT AS A MESSAGE
+            header("location: ../form.php?error=bad_file");
+            exit(); 
         }
         //SPLIT THE FILE NAME INTO DIFFERENT PARTS 
         $pathInfo = pathinfo($_FILES["file"]["name"]);

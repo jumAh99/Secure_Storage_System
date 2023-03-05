@@ -15,7 +15,4 @@ $connectionObject = mysqli_connect(hostname:$serverHostName, username:$serverUse
 if(mysqli_connect_errno()){
     //STOP THE SCRIPT AND PRINT A MESSAGE 
     die("Ops, connection error has occured!");
-}else{
-    //IF THE CONNECTION WAS SUCCESSFUL
-    echo "Connection Estabilished!"; 
 }
