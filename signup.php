@@ -6,7 +6,7 @@
         <input type="password" name="password" placeholder="Password..">
         <input type="password" name="repeatPassword" placeholder="Type password again..">
         <button type="submit" name="submit">Sign Up</button>
-        <li><a href='login.php'>Login!</a></li> 
+        <li><a href='login'>Login!</a></li> 
 
         <!--ERROR MESSAGES WHEN SOMETHING GOES WRONG!-->
         <?php

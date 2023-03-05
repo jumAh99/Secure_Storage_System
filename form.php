@@ -57,8 +57,8 @@
             if(isset($_SESSION["userID"])){
                 echo "<td><button><a href='php/logout-user.php'>LogOut</a></button></td>";
             }else{
-                echo "<button><a href='signup.php'>Register!</a></button>"; 
-                echo"<button><a href='login.php'>Login!</a></button>"; 
+                echo "<button><a href='signup'>Register!</a></button>"; 
+                echo"<button><a href='login'>Login!</a></button>"; 
             }
             //CHECK FOR ERROR MESSAGES
             if(isset($_GET["error"])){

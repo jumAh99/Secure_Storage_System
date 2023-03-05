@@ -4,7 +4,7 @@
         <input type="text" name="userName" placeholder="Username/Email">
         <input type="password" name="password" placeholder="Password">
         <button type="submit" name="submit">Login</button>
-        <li><a href="signup.php">Register!</a></li>
+        <li><a href="signup">Register!</a></li>
 
         <!--ERROR MESSAGES WHEN SOMETHING GOES WRONG!-->
         <?php
