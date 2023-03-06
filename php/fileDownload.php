@@ -7,9 +7,8 @@ if(!empty($_GET['file'])){
     //ASSIGN THE FILE NAME TO A VARIABLE THAT WILL BE USED TO FETCH IT FROM LOCAL SYSTEM
     $fileName = basename($_GET['file']);
     //GET THE PATCH OF THE FILE INSTALLED IN THE LOCAL SYSTEM
-    $filePath = __DIR__ . "/../uploads/" . $_SESSION["userUID"] . "/" .  $fileName; 
     $encryptedDestinationPathUser = __DIR__ . "/../uploads/" . $_SESSION["userUID"] . "/encrypted/" .  $fileName; 
-    $decryptedDestinationPathUser = __DIR__ . "/../uploads/" . $_SESSION["userUID"] . "/decrypted/" .  $fileName; 
+    $decryptedDestinationPathUser = __DIR__ . "/../uploads/" . $_SESSION["userUID"] .  $fileName; 
     //IF THE FILE IS THERE 
     if(!empty($encryptedDestinationPathUser) && file_exists($encryptedDestinationPathUser)){
         //GET AND DEFINE THE FILE HEADER 

@@ -76,7 +76,8 @@ if(isset($_SESSION["userID"])){
         $fileName = $base . "." . $pathInfo["extension"]; 
         //ABSOLUTE PATH TO THE DESTINATION FOLDER
         if(!is_dir(__DIR__ . "/../uploads/" . $_SESSION["userUID"])){
-            mkdir(__DIR__ . "/../uploads/" . $_SESSION["userUID"], 0777, true);  
+            mkdir(__DIR__ . "/../uploads/" . $_SESSION["userUID"], 0777, true); 
+            mkdir(__DIR__ . "/../uploads/" . $_SESSION["userUID"] . "/encrypted", 0777, true);
         }
         $destinationPathUser = __DIR__ . "/../uploads/" . $_SESSION["userUID"] . "/" .  $fileName; 
         $encryptedDestinationPathUser = __DIR__ . "/../uploads/" . $_SESSION["userUID"] . "/encrypted/" .  $fileName; 

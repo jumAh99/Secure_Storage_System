@@ -26,7 +26,7 @@
                     <!-- CHECK IF THE USER IS LOGGED IN -->
                     <?php
                         if(isset($_SESSION["userID"])){
-                            //echo"<input type=\"hidden\" name=\"MAX_FILE_SIZE\" value=\"1048576\">"; 
+                            echo"<input type=\"hidden\" name=\"MAX_FILE_SIZE\" value=\"1048576\">"; 
                             echo "<td><label for=\"file\">Select File</label></td>"; 
                             echo "<td><input type=\"file\" id=\"file\" name=\"file\"></td>"; 
                             echo"<td><input type=\"submit\" name=\"submit\"></td>"; 
