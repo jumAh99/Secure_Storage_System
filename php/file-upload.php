@@ -103,6 +103,7 @@ if(isset($_SESSION["userID"])){
             exit(); 
         }
         encryptFile($destinationPathUser, $encryptedDestinationPathUser, "hello");  
+        unlink($destinationPathUser); 
         //IF UPLOAD WAS SUCECSSFUL THEN PRINT IT 
         header("location: ../form?error=none");
         exit(); 
