@@ -79,7 +79,7 @@ if(isset($_SESSION["userID"])){
             mkdir(__DIR__ . "/../uploads/" . $_SESSION["userUID"], 0777, true);  
         }
         $destinationPathUser = __DIR__ . "/../uploads/" . $_SESSION["userUID"] . "/" .  $fileName; 
-
+        $encryptedDestinationPathUser = __DIR__ . "/../uploads/" . $_SESSION["userUID"] . "/encrypted/" .  $fileName; 
         //INSERT THE FILE INFORMATION INTO THE DATABASE
         $fileDate =  date('Y-m-d'); 
         $fileTime = date("h:i:s", strtotime('-1 hour'));
@@ -102,6 +102,7 @@ if(isset($_SESSION["userID"])){
             header("location: ../form?error=file_partial");
             exit(); 
         }
+        encryptFile($destinationPathUser, $encryptedDestinationPathUser, "hello");  
         //IF UPLOAD WAS SUCECSSFUL THEN PRINT IT 
         header("location: ../form?error=none");
         exit(); 
