@@ -51,7 +51,6 @@ if(isset($_SESSION["userID"])){
             }
         }
 
-        
         //GET THE FILE INFORMATION TO ASSESS WEATHER THE FILE UPLOADED IS SAFE 
         $fileInfo = new finfo(FILEINFO_MIME_TYPE);
         $mime_type = $fileInfo->file($_FILES["file"]["tmp_name"]); 
