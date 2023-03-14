@@ -85,16 +85,15 @@ if(isset($_SESSION["userID"])){
         $fileDate =  date('Y-m-d'); 
         $fileTime = date("h:i:s", strtotime('-1 hour'));
         $fileSize = round(filesize($_FILES["file"]["tmp_name"])/1024/1024,2); 
-        //MAKE THE PREPARED STATEMENT
-        uploadFileSQLRecord($connectionObject, $_SESSION["userID"], $fileName, $fileDate, $fileSize, $fileTime); 
 
         //CHECK WEATHER THE FILE NAME ALREADY EXISTS IN THE FOLDER 
         $temp = 1;
         //LOOP TROUGH ALL THE FILES PRESENT CURRENTLY IN THE FOLDER 
-        while(file_exists(($destinationPathUser))){
+        while(file_exists($encryptedDestinationPathUser)){
             $fileName = $base . "($temp)." . $pathInfo["extension"]; 
             //RECREATE THE DESTINATION 
-            $destinationPathUser = __DIR__ . "/../uploads/" . $_SESSION["userUID"] . "/". $fileName; 
+            $destinationPathUser = __DIR__ . "/../uploads/" . $_SESSION["userUID"] . "/". $fileName;
+            $encryptedDestinationPathUser = __DIR__ . "/../uploads/" . $_SESSION["userUID"] . "/encrypted/" .  $fileName; 
             //INCREMENT THE INDEX GIVE THE NEXT FILE A DIFFERNT NUMERIC NAME
             $temp++; 
         }
@@ -102,12 +101,16 @@ if(isset($_SESSION["userID"])){
             //ADD THE ERROR TYPE TO URL SO WE CAN USE THAT AS A MESSAGE
             header("location: ../form?error=file_partial");
             exit(); 
+        }else{
+            encryptFile($destinationPathUser, $encryptedDestinationPathUser, "hello"); 
+            unlink($destinationPathUser); 
+            //MAKE THE PREPARED STATEMENT
+            uploadFileSQLRecord($connectionObject, $_SESSION["userID"], $fileName, $fileDate, $fileSize, $fileTime); 
         }
-        encryptFile($destinationPathUser, $encryptedDestinationPathUser, "hello");  
-        unlink($destinationPathUser); 
         //IF UPLOAD WAS SUCECSSFUL THEN PRINT IT 
         header("location: ../form?error=none");
         exit(); 
+
     }
 }else{
     //IF UPLOAD WAS SUCECSSFUL THEN PRINT IT 

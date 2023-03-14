@@ -21,9 +21,6 @@
             //IF THE SESSION IS SET THEN THE PAGE WILL SHOW THE REQUIRED FUNCTIONALITIES
             if(isset($_SESSION["userID"])){
                 REQUIRE_ONCE "template-util/form-session-is-set.php"; 
-            }else{
-                echo "<button><a href='signup'>Register!</a></button>"; 
-                echo"<button><a href='login'>Login!</a></button>"; 
             }
         ?>
     </div>

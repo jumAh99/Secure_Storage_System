@@ -1,0 +1,65 @@
+body{
+    background-color: rgb(110, 110, 110);
+}
+/* CLASS RESPONSABLE FOR THE HEADER ITSELF */
+.main-header{
+    /* THE HEADER WILL TAKE THE ENIIRE SPACE IN THE Y AXES*/
+    width: 100%;
+    /* SET THE HEIGHT OF THE HEADER T O 60PX */
+    height: 50px;
+    /* SET THE BACKGROUND COLOR OF THE HEADER */
+    background-color: #808080;
+    /* SET THE OBJECTS INSIDE THE ACTUAL HEADER */
+    display: flex;
+    /* MAKE THE CONTANT SPLIT OUT */
+    justify-content: space-between;
+}
+/* THIS CLASS IS RESPONSABLE FOR THE LOGO CHNAGES INSIDE THE WEBSITE */
+.header-main-logo{
+    /* MAKE THE CONTENT FIT INSIDE THE CONTAINER */
+    width: fit-content;
+    /* SET THE LOGO HEIGHT 100% OF THE CONTAINER */
+    height: 100%;
+    /* SET THE BACKGROUND COLOR */
+    background-color: yellow;
+    display: flex;
+}
+/* THIS CLASS IS RESPONSABLE FOR THE LOGO CHNAGES INSIDE THE WEBSITE */
+.header-main-logOut{
+    /* SET VALUE FOR THE WIDTH */
+    width: 120px;
+    /* SET THE LOGO HEIGHT 100% OF THE CONTAINER */
+    height: 100%;
+    /* SET THE BACKGROUND COLOR */
+    background-color: grey;
+}
+a{
+    /* ALLOW THE ANCOR TAG TO HAVE A POINTY CURSOR WHEN HOOVERING */
+    cursor: pointer;
+}
+.navigation-bar{
+    width: fit-content;
+    align-items: center;
+    background: rgb(247, 228, 194);
+}
+.navigation-bar ul{
+    /* TAKE OUT BULLET POINTS */
+    list-style: none;
+    margin-right: 10px;
+}
+.navigation-bar ul li{
+    /* PUT THEM NEXT TO EACH OTHER */
+    display: inline;
+    float: left;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+.navigation-bar ul li a{
+    /* SET A FONT */
+    font-family:Arial, Helvetica, sans-serif; 
+    color: black;
+}
+/* WHAT HOOVERING THE TEXT DOES */
+.navigation-bar ul li:hover{ 
+    background-color: #c9c9c9;
+}

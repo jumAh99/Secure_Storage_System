@@ -1,11 +1,13 @@
 <section class="login-form">
-    <h2>Login</h2>
-    <form action="php/login-user.php" method="post">
-        <input type="text" name="userName" placeholder="Username/Email">
-        <input type="password" name="password" placeholder="Password">
-        <button type="submit" name="submit">Login</button>
-        <li><a href="signup">Register!</a></li>
-
+    <?php REQUIRE_ONCE 'template-util/navigation-bar.php'?>
+    <section>
+        <form action="php/login-user.php" method="post">
+            <input type="text" name="userName" placeholder="Username/Email">
+            <input type="password" name="password" placeholder="Password">
+            <button type="submit" name="submit">Log In</button>
+        </form>
+    </section>
+    <section>
         <!--ERROR MESSAGES WHEN SOMETHING GOES WRONG!-->
         <?php
             //IF ERROR MESSAGE EXISTS IN THE URL
@@ -25,5 +27,5 @@
                 }
             }
         ?>
-    </form>
+    </section>
 </section>
