@@ -1,0 +1,19 @@
+.link{
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    font-weight: 500;
+}
+/* CLASS RESPONSABLE FOR THE HEADER ITSELF */
+.main-header{
+    /* THE HEADER WILL TAKE THE ENIIRE SPACE IN THE Y AXES*/
+    width: 100%;
+    /* SET THE HEIGHT OF THE HEADER T O 60PX */
+    height: 60px;
+    /* SET THE BACKGROUND COLOR OF THE HEADER */
+    background-color: #797979;
+}
+/* THIS CLASS IS RESPONSABLE FOR THE LOGO CHNAGES INSIDE THE WEBSITE */
+.header-main-logo{
+
+}

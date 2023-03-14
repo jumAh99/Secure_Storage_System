@@ -31,6 +31,9 @@
             <tr bgcolor="#92a8d1">
                 <th width="120">File Name</th>
                 <th width="120">File Size</th>
+                <th width="120">Owner</th>
+                <th width="120">Upload Date</th>
+                <th width="120">Upload Time</th>
             </tr>
 
             <?php
@@ -44,14 +47,40 @@
                     while($rows = mysqli_fetch_assoc($run)){
                         ?>
                             <tr bgcolor="#eedac2" align="center">
-                                <td width="120"><a href="php/fileDownload.php?file=<?php echo $rows['fileName']?>"><?php  echo $rows["fileName"]?></a></td>
+                                <td width="120"><a class="link" href="php/fileDownload.php?file=<?php echo $rows['fileName']?>"><?php  echo $rows["fileName"]?></a></td>
                                 <td width="120"><?php echo $rows["fileSize"] . " MB"?></td>
+                                
+                                <?php
+                                    //GET THE PHP SCRIPT
+                                    REQUIRE_ONCE 'php/file-sharing-util.php';
+                                    //GET ALL THE USER INFORMATION BASED ON THE FILE 
+                                    $fileOwner = getUserInformation($connectionObject, $rows["userID"]); 
+
+                                    //GET THE CONDITION DEPENDING WHO IS THE OWNER OF THE FILE
+                                    if($fileOwner["userUID"] == $_SESSION["userUID"]){
+                                        ?>
+                                            <td width="120">You</td>
+                                        <?php
+                                    }else{
+                                        ?>
+                                           <td width="120"> <?php echo $fileOwner["userUID"] ?></td> 
+                                        <?php
+                                    }
+
+                                ?>
+                                <td width="120"><?php echo $rows["uploadDate"]?></td>
+                                <td width="120"><?php echo $rows["uploadTime"]?></td>
                             </tr>
                         <?php 
                     }
                 }
             ?>
         </table>
+</section>
+
+<!-- LOGOUT UTIL -->
+<section>
+    <button><a href='php/logout-user.php'>LogOut</a></button>
 </section>
 
 <!-- ERROR HANDLING CALLS -->
@@ -110,9 +139,4 @@
             }
         }
     ?>
-</section>
-
-<!-- LOGOUT UTIL -->
-<section>
-    <button><a href='php/logout-user.php'>LogOut</a></button>
 </section>
