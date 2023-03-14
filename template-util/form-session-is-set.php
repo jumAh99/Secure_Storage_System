@@ -27,7 +27,7 @@
 
 <!-- ERROR HANDLING CALLS -->
 <section class="error-handling">
-    <div>
+    <div align="center">
         <?php
             //CHECK FOR ERROR MESSAGES
             if(isset($_GET["error"])){
@@ -36,44 +36,44 @@
                     //IF THE VALUE IS AN EMPTY INPUT
                     case "file_partial":
                         //PRINT OUT AN HTML PHRAGRAPH THAT CONVEYS THE MISTAKE
-                        exit("THERE WAS AN ERROR WITH THE UPLOAD!"); 
+                        echo("<p>THERE WAS AN ERROR WITH THE UPLOAD!</p>"); 
                         break; 
                     //IF THE VALUE IS AN EMPTY INPUT
                     case "no_file":
                         //PRINT OUT AN HTML PHRAGRAPH THAT CONVEYS THE MISTAKE
-                        exit("NO FILE WAS SELECTED!"); 
+                        echo("<p>NO FILE WAS SELECTED!</p>"); 
                         break; 
                     case "err_extension":
                         //PRINT OUT AN HTML PHRAGRAPH THAT CONVEYS THE MISTAKE
-                        exit("SOMETHING WENT WRONG!"); 
+                        echo("<p>SOMETHING WENT WRONG!</p>"); 
                         break; 
                     case "invalid_size":
                         //PRINT OUT AN HTML PHRAGRAPH THAT CONVEYS THE MISTAKE
-                        exit("THE FILE IS TOO LARGE!"); 
+                        echo("<p>THE FILE IS TOO LARGE!</p>"); 
                         break; 
                     case "cant_write":
                         //PRINT OUT AN HTML PHRAGRAPH THAT CONVEYS THE MISTAKE
-                        exit("CANNOT WRITE FILE!"); 
+                        echo("<p>CANNOT WRITE FILE!</p>"); 
                         break; 
                     case "no_tmp_dir":
                         //PRINT OUT AN HTML PHRAGRAPH THAT CONVEYS THE MISTAKE
-                        exit("NO TEMP DIRECTORY!"); 
+                        echo("<p>NO TEMP DIRECTORY!</p>"); 
                         break; 
                     case "cannot_find_error":
                         //PRINT OUT AN HTML PHRAGRAPH THAT CONVEYS THE MISTAKE
-                        exit("WE CANT FIGURE OUT THE ERROR!"); 
+                        echo("<p>WE CANT FIGURE OUT THE ERROR!<p>"); 
                         break; 
                     case "stmtFailed":
                         //PRINT OUT AN HTML PHRAGRAPH THAT CONVEYS THE MISTAKE
-                        exit("SOMETHING WENT WRONG!"); 
+                        echo("<p>SOMETHING WENT WRONG!</p>"); 
                         break; 
                     case "bad_file":
                         //PRINT OUT AN HTML PHRAGRAPH THAT CONVEYS THE MISTAKE
-                        exit("FILE IS UNSUPPORTED!"); 
+                        echo("<p>FILE IS UNSUPPORTED!</p>"); 
                         break; 
                     case "file_not_found":
                         //PRINT OUT AN HTML PHRAGRAPH THAT CONVEYS THE MISTAKE
-                        exit("NO FILE WAS FOUND, PLEASE TRY AGAIN!"); 
+                        echo("<p>NO FILE WAS FOUND, PLEASE TRY AGAIN!</p>"); 
                         break; 
                 }
             }

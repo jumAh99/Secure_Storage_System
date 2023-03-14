@@ -17,7 +17,7 @@ function uploadFileSQLRecord($connectionObject, $userID, $fileName, $fileDate, $
     mysqli_stmt_close($sql_prepared_statement); 
 }
 
-define('FILE_ENCRYPTION_BLOCKS', 10000);
+define('FILE_ENCRYPTION_BLOCKS', 2000000);
 function encryptFile($source, $dest, $key)
 {
     $cipher = 'aes-256-cbc';

@@ -75,7 +75,7 @@ if(isset($_SESSION["userID"])){
         //GET THE TEMP FILE NAME ASSIGNED TO THE FILE WHEN UPLOADED TO SERVER
         $fileName = $base . "." . $pathInfo["extension"]; 
         //ABSOLUTE PATH TO THE DESTINATION FOLDER
-        if(!is_dir(__DIR__ . "/../uploads/" . $_SESSION["userUID"])){
+        if(!is_dir(__DIR__ . "/../uploads/" . $_SESSION["userUID"] . "/encrypted/")){
             mkdir(__DIR__ . "/../uploads/" . $_SESSION["userUID"], 0777, true); 
             mkdir(__DIR__ . "/../uploads/" . $_SESSION["userUID"] . "/encrypted", 0777, true);
         }
@@ -102,7 +102,7 @@ if(isset($_SESSION["userID"])){
             header("location: ../form?error=file_partial");
             exit(); 
         }else{
-            encryptFile($destinationPathUser, $encryptedDestinationPathUser, "hello"); 
+            encryptFile($destinationPathUser, $encryptedDestinationPathUser, "as89aaw0asklsadas10Poa"); 
             unlink($destinationPathUser); 
             //MAKE THE PREPARED STATEMENT
             uploadFileSQLRecord($connectionObject, $_SESSION["userID"], $fileName, $fileDate, $fileSize, $fileTime); 
