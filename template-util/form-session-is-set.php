@@ -5,15 +5,15 @@
         <tr>
             <td>
                 <form method="post" enctype="multipart/form-data" action="php/file-upload.php" align="center">
-                    <!-- FIELD THAT ASSESS WEATHER FILE IS TOO BIG-->
-                    <!-- <input type="hidden" name="MAX_FILE_SIZE" value="1048576">-->
-                    <!-- INPUT FIELD TO SELECT FILE-->
-                    <!-- CHECK IF THE USER IS LOGGED IN -->
                     <?php
                         if(isset($_SESSION["userID"])){
-                            // echo"<input type=\"hidden\" name=\"MAX_FILE_SIZE\" value=\"1048576\">"; 
+                            // THIS FIELD WILL CONTROL THE MAX SIZE OF THE FILE UPLOADED
+                            echo"<input type=\"hidden\" name=\"MAX_FILE_SIZE\" value=\"1048576\">"; 
+                            // THIS FIELD WILL ALLOW THE USER TO SELECT AND UPLOAD A FILE
                             echo "<td><label for=\"file\">Select File</label></td>"; 
+                            // THIS FIELD WILL DISPLAY THE NAME OF THE FILE UPLOADED
                             echo "<td><input type=\"file\" id=\"file\" name=\"file\"></td>"; 
+                            // THIS FIELD WILL ALLOW THE USER TO PRESS A SUBMIT BUTTON TO UPLOAD THE FILE
                             echo"<td><input type=\"submit\" name=\"submit\"></td>"; 
                         }
                     ?>
@@ -90,6 +90,7 @@
             <th width="120">Owner</th>
             <th width="120">Upload Date</th>
             <th width="120">Upload Time</th>
+            <th width="120">Options</th>
         </tr>
 
         <?php
@@ -105,13 +106,11 @@
                         <tr bgcolor="#eedac2" height="50" align="center">
                             <td width="120"><a class="link" href="php/fileDownload.php?file=<?php echo $rows['fileName']?>"><?php  echo $rows["fileName"]?></a></td>
                             <td width="120"><?php echo $rows["fileSize"] . " MB"?></td>
-                            
                             <?php
                                 //GET THE PHP SCRIPT
                                 REQUIRE_ONCE 'php/file-sharing-util.php';
                                 //GET ALL THE USER INFORMATION BASED ON THE FILE 
                                 $fileOwner = getUserInformation($connectionObject, $rows["userID"]); 
-
                                 //GET THE CONDITION DEPENDING WHO IS THE OWNER OF THE FILE
                                 if($fileOwner["userUID"] == $_SESSION["userUID"]){
                                     ?>
@@ -125,6 +124,9 @@
                             ?>
                             <td width="120"><?php echo $rows["uploadDate"]?></td>
                             <td width="120"><?php echo $rows["uploadTime"]?></td>
+                            <td width="120">
+                                <a class="option" href="php/delete-file.php?file=<?php echo $rows['fileName']?>">Delete</a>/<a class="option" href="php/file-sharing.php?file=<?php echo $rows['fileID']?>">Share</a>
+                            </td>
                         </tr>
                     <?php 
                 }

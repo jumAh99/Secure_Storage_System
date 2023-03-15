@@ -12,7 +12,7 @@ if(!empty($_GET['file'])){
     //IF THE FILE IS THERE 
     if(!empty($encryptedDestinationPathUser) && file_exists($encryptedDestinationPathUser)){
         //GET AND DEFINE THE FILE HEADER 
-        decryptFile($encryptedDestinationPathUser, $decryptedDestinationPathUser, "as89aaw0asklsadas10Poa"); 
+        decryptFile($encryptedDestinationPathUser, $decryptedDestinationPathUser, $_SESSION["userID"] . "_key"); 
         header("Cache-Control: public");
         header("Content-Description: File Transfer");
         header("Content-Disposition: attachment; filename=$fileName");

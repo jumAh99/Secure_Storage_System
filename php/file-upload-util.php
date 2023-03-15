@@ -62,3 +62,27 @@ function decryptFile($source, $dest, $key)
     fclose($fpSource);
     fclose($fpDest);
 }
+
+function deleteFile($connectionObject, $fileName, $userID, $destinationPathUser){
+    //CONNECT TO THE DATABASE TO CHECK IF THE USER IS PRESENT 
+    $sql = "DELETE FROM tb_file_details WHERE fileName=? AND userID=?;"; //? IS A PLACEHOLDER
+
+    /*PREPARED STATEMENT TO SEND SQL FIRST THEN DATA TO AVOID SQL INJEC
+    SEND SQL FIRST AND THEN THE USER INPUT SO THE INPUT IS NOT RUNNED AS CODE*/
+
+    $sql_prepared_statement = mysqli_stmt_init($connectionObject); 
+    //CHECK IF THE STATEMENT HAS ANY ERRORS
+    if(!mysqli_stmt_prepare($sql_prepared_statement, $sql)){
+        //SEND USER BACK TO SIGNUP PAGE
+        header("location: ../signup.html?stmtFailed");
+        exit(); 
+    }
+    //DELETE THE FILE IN THE FOLDER PRESENT IN THE SERVER
+    unlink($destinationPathUser);
+    //MAKE THE CONNECTION
+    mysqli_stmt_bind_param($sql_prepared_statement, "ss" /*type:STRING*/, $fileName, $userID); 
+    //EXECUTE THE STATEMENT 
+    mysqli_stmt_execute($sql_prepared_statement /* statement we are executing */ ); 
+    //CLOSE THE PREPARED STATEMENT 
+    mysqli_stmt_close($sql_prepared_statement); 
+}

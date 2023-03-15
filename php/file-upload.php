@@ -102,7 +102,7 @@ if(isset($_SESSION["userID"])){
             header("location: ../form?error=file_partial");
             exit(); 
         }else{
-            encryptFile($destinationPathUser, $encryptedDestinationPathUser, "as89aaw0asklsadas10Poa"); 
+            encryptFile($destinationPathUser, $encryptedDestinationPathUser, $_SESSION["userID"] . "_key"); 
             unlink($destinationPathUser); 
             //MAKE THE PREPARED STATEMENT
             uploadFileSQLRecord($connectionObject, $_SESSION["userID"], $fileName, $fileDate, $fileSize, $fileTime); 
