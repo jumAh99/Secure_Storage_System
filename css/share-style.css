@@ -1,0 +1,11 @@
+
+.container{
+    width: 1000px;
+    max-width: 1000px;
+    margin: 1rem;
+    padding: 2rem;
+    box-shadow: 0 0 40px rgba(0,0,0,0.2);
+    background-color: black;
+    color: aliceblue;
+    text-align: center;
+}

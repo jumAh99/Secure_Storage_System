@@ -1,6 +1,6 @@
 <!-- MAIN FILE UPLOAD UTIL -->
-<section class="file-upload-util">
-    <!-- MAIN FORM WHERE THE USER WILL UPLOAD FILES -->
+<!-- MAIN FORM WHERE THE USER WILL UPLOAD FILES -->
+<section class="main-content">
     <table border="7px" align="center">
         <tr>
             <td>
@@ -23,11 +23,9 @@
             </td>
         </tr>
     </table>
-</section>
 
-<!-- ERROR HANDLING CALLS -->
-<section class="error-handling">
-    <div align="center">
+    <!-- ERROR HANDLING CALLS -->
+    <div class="error-handling">
         <?php
             //CHECK FOR ERROR MESSAGES
             if(isset($_GET["error"])){
@@ -83,11 +81,9 @@
             }
         ?>
     </div>
-</section>
 
-<!-- FILE INFORMATION -->
-<section class="file-innfo-table">
-    <table bgcolor="#cbcbcb" width="700" align="center">
+    <!-- FILE INFORMATION -->
+    <table bgcolor="#cbcbcb" width="700">
         <tr bgcolor="#92a8d1">
             <th width="120">File Name</th>
             <th width="120">File Size</th>
@@ -129,7 +125,7 @@
                             <td width="120"><?php echo $rows["uploadDate"]?></td>
                             <td width="120"><?php echo $rows["uploadTime"]?></td>
                             <td width="120">
-                                <a class="option" href="php/delete-file.php?file=<?php echo $rows['fileName']?>">Delete</a>/<a class="option" href="php/file-sharing.php?file=<?php echo $rows['fileID']?>">Share</a>
+                                <a class="option" href="php/delete-file.php?file=<?php echo $rows['fileName']?>">Delete</a>/<a class="option" href="share?file=<?php echo $rows['fileName']?>">Share</a>
                             </td>
                         </tr>
                     <?php 

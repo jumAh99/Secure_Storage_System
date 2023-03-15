@@ -15,7 +15,6 @@
                 if(isset($_SESSION["userID"])){
                     ?>
                         <li><!-- ALLOW THE USER TO LOG OUT --><a href="php/logout-user.php">Log Out</a></li>
-                        <li><!-- ALLOW THE USER TO GO INTO THE SHARE PAGE --><a href="#">Share Files</a></li>
                     <?php
                 }else{
                     ?>
