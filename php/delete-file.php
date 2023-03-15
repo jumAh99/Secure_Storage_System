@@ -15,7 +15,7 @@ if(!empty($_GET['file'])){
     deleteFile($connectionObject, $fileName, $userID, $encryptedDestinationPathUser); 
 
     //ADD THE ERROR TYPE TO URL SO WE CAN USE THAT AS A MESSAGE
-    header("location: ../form?error=none");
+    header("location: ../form?error=fileDeleted");
     exit(); 
 
 }else{

@@ -8,7 +8,7 @@
                     <?php
                         if(isset($_SESSION["userID"])){
                             // THIS FIELD WILL CONTROL THE MAX SIZE OF THE FILE UPLOADED
-                            echo"<input type=\"hidden\" name=\"MAX_FILE_SIZE\" value=\"1048576\">"; 
+                            // echo"<input type=\"hidden\" name=\"MAX_FILE_SIZE\" value=\"1048576\">"; 
                             // THIS FIELD WILL ALLOW THE USER TO SELECT AND UPLOAD A FILE
                             echo "<td><label for=\"file\">Select File</label></td>"; 
                             // THIS FIELD WILL DISPLAY THE NAME OF THE FILE UPLOADED
@@ -74,6 +74,10 @@
                     case "file_not_found":
                         //PRINT OUT AN HTML PHRAGRAPH THAT CONVEYS THE MISTAKE
                         echo("<p>NO FILE WAS FOUND, PLEASE TRY AGAIN!</p>"); 
+                        break; 
+                    case "fileDeleted":
+                        //PRINT OUT AN HTML PHRAGRAPH THAT CONVEYS THE MISTAKE
+                        echo("<p>FILE DELETED!</p>"); 
                         break; 
                 }
             }
