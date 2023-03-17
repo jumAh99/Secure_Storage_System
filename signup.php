@@ -7,7 +7,7 @@
     <title>Register</title>
 </head>
 <body>
-    <?php REQUIRE_ONCE 'template-util/navigation-bar.php'?>
+    <?php REQUIRE_ONCE 'template-html-components/navigation-bar.php'?>
     <section class="signup-form">
         <form action="php/signup-user.php" method="post">
             <input type="text" name="username" placeholder="Username..">

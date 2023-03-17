@@ -8,7 +8,7 @@
 </head>
 <body>
     <section class="login-form">
-        <?php REQUIRE_ONCE 'template-util/navigation-bar.php'?>
+        <?php REQUIRE_ONCE 'template-html-components/navigation-bar.php'?>
         <section>
             <form action="php/login-user.php" method="post">
                 <input type="text" name="userName" placeholder="Username/Email">

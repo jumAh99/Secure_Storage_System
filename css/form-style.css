@@ -1,6 +1,17 @@
+body{
+    background-color: #414141;
+    font-family: sans-serif;
+}
 .container{
-    background-color: rgb(150, 150, 150);
-    width: fit-content;
+    background-color: rgb(53, 53, 53);
+    width: 40%;
+    padding: 0% 10px;
+    margin: auto;
+}
+/* .file-upload-table{
+    color: white;
+    text-align: center;
+    margin: auto;
 }
 .link{
     border: 0;
@@ -14,19 +25,28 @@
 }
 .error-handling{
     width: fit-content;
-    height: 100%;
+    width: 100%;
     background-color: rgb(221, 221, 221);
-    align-content: center;
-    margin-left: 35%;
-}
+    text-align: center;
+    margin: auto;
+} */
 .error-handling p{
     margin-left: 10px;
     font-family:Arial, Helvetica, sans-serif; 
     color: red;
 }
-.file-content{
-    background-color:#c90f0f; 
+input[type="file"]{
+    display: none;
 }
-.file-content tr{
-    background-color: aliceblue;
+label{
+    color: white;
+    height: 60px;
+    width: 250px;
+    background-color: #f5af09;
+    position: absolute; 
+    margin: auto;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

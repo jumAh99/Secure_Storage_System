@@ -12,7 +12,7 @@
     <title>Share</title>
 </head>
 <body>
-    <?php REQUIRE_ONCE 'template-util/navigation-bar.php'?>
+    <?php REQUIRE_ONCE 'template-html-components/navigation-bar.php'?>
 
     <section>
         <!-- FILE INFORMATION -->
