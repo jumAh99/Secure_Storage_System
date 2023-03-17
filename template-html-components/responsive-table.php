@@ -1,5 +1,5 @@
 <div class="table-container"></div>
-<h1 class="heading">File Information</h1>
+<h1 class="heading">Secure File Storage</h1>
 <table class="table">
     <thead>
         <tr>

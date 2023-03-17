@@ -9,7 +9,7 @@
         while($rows = mysqli_fetch_assoc($run)){
             ?>
                 <tr>
-                    <td data-label="FileName: "><?php  echo $rows["fileName"]?></a></td>
+                    <td maxLength="10" data-label="FileName: "><?php  echo $rows["fileName"]?></a></td>
                     <td data-label="FileSize: "><?php echo $rows["fileSize"] . " MB"?></td>
                     <?php
                         //GET THE PHP SCRIPT

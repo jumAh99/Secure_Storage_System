@@ -1,52 +1,58 @@
 body{
-    background-color: #414141;
-    font-family: sans-serif;
+    background-color: #000000;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    -webkit-text-stroke: 0.1px #ffffff;
 }
 .container{
-    background-color: rgb(53, 53, 53);
-    width: 40%;
-    padding: 0% 10px;
+    background-color: rgb(51, 51, 51);
+    width: 70%;
+    padding: 1% 5px;
     margin: auto;
+    margin-top: 5%;
+    border: 1px solid #69696988;
 }
-/* .file-upload-table{
+.file-upload-table{
     color: white;
     text-align: center;
     margin: auto;
-}
-.link{
-    border: 0;
-    outline: none;
-    cursor: pointer;
-    font-weight: 500;
-}
-.file-upload-util{
-    margin-top: 10%;
-    margin-bottom: 2%;
 }
 .error-handling{
     width: fit-content;
-    width: 100%;
-    background-color: rgb(221, 221, 221);
+    width: 25%;
+    background-color: rgba(136, 135, 135, 0.473);
     text-align: center;
     margin: auto;
-} */
+    margin-top: 2%;
+    opacity: 0.7;
+}
 .error-handling p{
     margin-left: 10px;
     font-family:Arial, Helvetica, sans-serif; 
-    color: red;
+    color: rgba(255, 0, 0, 0.678);
+    font-size: 30px;
+    letter-spacing: 0.35;
+    font-weight: normal;
 }
-input[type="file"]{
-    display: none;
-}
-label{
-    color: white;
-    height: 60px;
-    width: 250px;
-    background-color: #f5af09;
-    position: absolute; 
-    margin: auto;
-    font-size: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+@media (max-width: 768px) {
+    .container{
+        display: block;
+        width: 100%;
+    }
+    .error-handling{
+        width: fit-content;
+        width: 50%;
+        background-color: rgba(136, 135, 135, 0.473);
+        text-align: center;
+        margin: auto;
+        margin-top: 2%;
+        opacity: 0.7;
+    }
+    .error-handling p{
+        margin-left: 10px;
+        font-family:Arial, Helvetica, sans-serif; 
+        color: rgba(255, 0, 0, 0.678);
+        font-size: 20px;
+        letter-spacing: 0.35;
+        font-weight: normal;  
+    }
 }

@@ -21,7 +21,7 @@
                     break; 
                 case "invalid_size":
                     //PRINT OUT AN HTML PHRAGRAPH THAT CONVEYS THE MISTAKE
-                    echo("<p>THE FILE IS TOO LARGE!</p>"); 
+                    echo("<p>THE FILE IS TOO LARGE! <br>(max size is 5mb)</p>"); 
                     break; 
                 case "cant_write":
                     //PRINT OUT AN HTML PHRAGRAPH THAT CONVEYS THE MISTAKE
@@ -46,10 +46,6 @@
                 case "file_not_found":
                     //PRINT OUT AN HTML PHRAGRAPH THAT CONVEYS THE MISTAKE
                     echo("<p>NO FILE WAS FOUND, PLEASE TRY AGAIN!</p>"); 
-                    break; 
-                case "fileDeleted":
-                    //PRINT OUT AN HTML PHRAGRAPH THAT CONVEYS THE MISTAKE
-                    echo("<p>FILE DELETED!</p>"); 
                     break; 
             }
         }

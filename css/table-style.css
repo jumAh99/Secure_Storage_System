@@ -48,7 +48,7 @@
     text-decoration: none;
     border: 1px solid #000000;
     color: #ffffff;
-    background-color: #880000;
+    background-color: #3272326e;
     line-height: 35px;
     display: block;
 }
@@ -64,10 +64,14 @@
     }
     .table, .table .tbody, .table tr, .table td{
         display: block;
-        width: 100%;
+        width: 159%;
     }
     .table tr{
         margin-bottom: 15px;
+        width: 265px;
+        padding: 10%;
+        margin: auto;
+        margin-left: 5%;
     }
     .table tbody tr td{
         text-align:  right;
@@ -83,5 +87,24 @@
         font-weight: 600;
         font-size: 14px;
         text-align: left;
+    }
+    .table tbody .buttons .options{
+        vertical-align: middle;
+        user-select: none;
+        font-size: 14px;
+        opacity: 1;
+        width: 50%;
+        text-align: center;
+        font-weight: medium;
+        text-decoration: none;
+        border: 1px solid #000000;
+        color: #ffffff;
+        background-color: #3272326e;
+        line-height: 35px;
+        display: block;
+    }
+    .table tbody .options:hover{
+        background-color: #ec5454;
+        color: #b6b6b6;
     }
 }

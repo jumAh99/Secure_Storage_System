@@ -1,11 +1,6 @@
 <link rel="stylesheet" href="css/navigation-style.css">
 <!-- NAVIGATION COMPONENT -->
 <header class="main-header">
-    <!-- CONTAINER FOR LOGO -->
-    <div class="header-main-logo">
-        SECURE STORAGE
-    </div>
-
     <!-- ECLARE THAT THIS THE NAVIGATIONN PORTION OF THE WEBSITE -->
     <nav class="navigation-bar">
         <!-- CREATE A NAVIGATION LIST WITH OPTIONS -->
