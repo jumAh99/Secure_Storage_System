@@ -1,7 +1,7 @@
 <?php
-function uploadFileSQLRecord($connectionObject, $userID, $fileName, $fileDate, $fileSize, $fileTime){
+function uploadFileSQLRecord($connectionObject, $userID, $fileName, $fileDate, $fileSize, $fileTime, $isOwner){
     //INSERT THE FILE INFORMATION INTO THE DATABASE
-    $sql= "INSERT INTO tb_file_details (userID, fileName, uploadDate, fileSize, uploadTime) VALUES (?,?,?,?,?)"; 
+    $sql= "INSERT INTO tb_file_details (userID, fileName, uploadDate, fileSize, uploadTime, Owner) VALUES (?,?,?,?,?,?)"; 
 
     $sql_prepared_statement = mysqli_stmt_init($connectionObject); 
     if(!mysqli_stmt_prepare($sql_prepared_statement, $sql)){
@@ -10,7 +10,7 @@ function uploadFileSQLRecord($connectionObject, $userID, $fileName, $fileDate, $
         exit(); 
     }
     //MAKE THE CONNECTION
-    mysqli_stmt_bind_param($sql_prepared_statement, "sssss" /*type:STRING*/, $userID, $fileName, $fileDate, $fileSize, $fileTime);
+    mysqli_stmt_bind_param($sql_prepared_statement, "ssssss" /*type:STRING*/, $userID, $fileName, $fileDate, $fileSize, $fileTime, $isOwner);
     //EXECUTE THE STATEMENT 
     mysqli_stmt_execute($sql_prepared_statement /* statement we are executing */ ); 
     //CLOSE THE PREPARED STATEMENT 

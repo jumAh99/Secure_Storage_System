@@ -31,7 +31,7 @@
     letter-spacing: 0.35;
     font-weight: normal;
     color: #229705;
-    background-color: #363636;
+    background-color: #000000;
     padding: 8px;
     text-align: center;
     border: 1px solid #dee2e685;
@@ -64,14 +64,14 @@
     }
     .table, .table .tbody, .table tr, .table td{
         display: block;
-        width: 159%;
+        width: 100%;
     }
     .table tr{
         margin-bottom: 15px;
         width: 265px;
-        padding: 10%;
         margin: auto;
         margin-left: 5%;
+        
     }
     .table tbody tr td{
         text-align:  right;

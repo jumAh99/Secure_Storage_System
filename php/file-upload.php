@@ -105,7 +105,7 @@ if(isset($_SESSION["userID"])){
             encryptFile($destinationPathUser, $encryptedDestinationPathUser, $_SESSION["userID"] . "_key"); 
             unlink($destinationPathUser); 
             //MAKE THE PREPARED STATEMENT
-            uploadFileSQLRecord($connectionObject, $_SESSION["userID"], $fileName, $fileDate, $fileSize, $fileTime); 
+            uploadFileSQLRecord($connectionObject, $_SESSION["userID"], $fileName, $fileDate, $fileSize, $fileTime,  $_SESSION["userUID"]); 
         }
         //IF UPLOAD WAS SUCECSSFUL THEN PRINT IT 
         header("location: ../form?error=none");

@@ -55,6 +55,12 @@ function loginUser($connectionObject, $username, $password){
         //GET THE USERNAME FROM THE DATABASE
         $_SESSION["userUID"] =  $presentUser["userUID"]; 
         header("location: ../form");
+
+        //ABSOLUTE PATH TO THE DESTINATION FOLDER
+        if(!is_dir(__DIR__ . "/../uploads/" . $_SESSION["userUID"] . "/encrypted/")){
+        mkdir(__DIR__ . "/../uploads/" . $_SESSION["userUID"], 0777, true); 
+        mkdir(__DIR__ . "/../uploads/" . $_SESSION["userUID"] . "/encrypted", 0777, true);
+    }
         exit(); 
     }
 }

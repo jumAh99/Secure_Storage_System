@@ -16,6 +16,11 @@ body{
     text-align: center;
     margin: auto;
 }
+.file-upload-table td{
+    background:#33282824; 
+    border: 1px solid #69696988;
+    text-align: center;
+}
 .error-handling{
     width: fit-content;
     width: 25%;
