@@ -1,5 +1,11 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 body{
-    background-color: rgba(53, 53, 53, 0.452);
+    background-color: #000000;
+    font-family: sans-serif;
 }
 .main-header{
     width: 100%;

@@ -24,3 +24,9 @@
     font-family:Arial, Helvetica, sans-serif; 
     color: red;
 }
+.file-content{
+    background-color:#c90f0f; 
+}
+.file-content tr{
+    background-color: aliceblue;
+}
