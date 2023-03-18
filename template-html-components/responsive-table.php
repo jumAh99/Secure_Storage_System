@@ -5,9 +5,9 @@
         <tr>
             <th>File Name</th>
             <th>File Size</th>
-            <th>Owner</th>
             <th>Upload Date</th>
             <th>Upload Time</th>
+            <th>Owner</th>
             <th>Options</th>
         </tr>
     </thead>
