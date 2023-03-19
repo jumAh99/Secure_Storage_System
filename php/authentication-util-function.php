@@ -23,11 +23,8 @@ function createUser($connectionObject, $username, $email, $password){
     //CLOSE THE PREPARED STATEMENT 
     mysqli_stmt_close($sql_prepared_statement); 
 
-    //CREATE THYE STORAGE FOLDER WHEN THE USER REGISTERS 
-    if(!is_dir(__DIR__ . "/../uploads/" . $username . "/encrypted/")){
-        mkdir(__DIR__ . "/../uploads/" . $username, 0777, true); 
-        mkdir(__DIR__ . "/../uploads/" . $username . "/encrypted", 0777, true);
-    }
+    //CREATE A DIRECTORY FOR FILE STORAGE WHEN THE REGISTRATION IS COMPLETE
+    makeSureDirectoriesArePresent($username); 
     //MAKE THE USER GO BACK TO THE LOGIN PAGE SO THEY CAN AUTHENTICATE 
     header("location: ../login?error=none");
     exit(); 
@@ -58,7 +55,10 @@ function loginUser($connectionObject, $username, $password){
         //CREATE A SESSION VARIABLE AND GET THE USER ID FROM THE DB
         $_SESSION["userID"] =  $presentUser["userID"]; 
         //GET THE USERNAME FROM THE DATABASE
-        $_SESSION["userUID"] =  $presentUser["userUID"]; 
+        $_SESSION["userUID"] =  $presentUser["userUID"];
+
+        //MAKE SURE THAT STORAGE FOLDER OF THE USER IS PRESENT
+        makeSureDirectoriesArePresent($_SESSION["userUID"]); 
         header("location: ../form");
         exit(); 
     }

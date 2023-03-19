@@ -16,3 +16,11 @@ if(mysqli_connect_errno()){
     //STOP THE SCRIPT AND PRINT A MESSAGE 
     die("Ops, connection error has occured!");
 }
+//THIS FUNCTION NEEDS TO CHECK WEATHER THE FILES ARE CURRENTLY PRESENT
+function makeSureDirectoriesArePresent($nameDirectory){
+    //CREATE THYE STORAGE FOLDER WHEN THE USER REGISTERS 
+    if(!is_dir(__DIR__ . "/../uploads/" . $nameDirectory . "/encrypted/")){
+        mkdir(__DIR__ . "/../uploads/" . $nameDirectory, 0777, true); 
+        mkdir(__DIR__ . "/../uploads/" . $nameDirectory. "/encrypted", 0777, true);
+    }
+}

@@ -74,11 +74,10 @@ if(isset($_SESSION["userID"])){
         $base = preg_replace("/[^\w-]/", "_", $base); 
         //GET THE TEMP FILE NAME ASSIGNED TO THE FILE WHEN UPLOADED TO SERVER
         $fileName = $base . "." . $pathInfo["extension"]; 
-        //ABSOLUTE PATH TO THE DESTINATION FOLDER
-        if(!is_dir(__DIR__ . "/../uploads/" . $_SESSION["userUID"] . "/encrypted/")){
-            mkdir(__DIR__ . "/../uploads/" . $_SESSION["userUID"], 0777, true); 
-            mkdir(__DIR__ . "/../uploads/" . $_SESSION["userUID"] . "/encrypted", 0777, true);
-        }
+
+        //MAKE SURE THAT STORAGE FOLDER OF THE USER IS PRESENT
+        makeSureDirectoriesArePresent($_SESSION["userUID"]); 
+        
         $destinationPathUser = __DIR__ . "/../uploads/" . $_SESSION["userUID"] . "/" .  $fileName; 
         $encryptedDestinationPathUser = __DIR__ . "/../uploads/" . $_SESSION["userUID"] . "/encrypted/" .  $fileName; 
         //INSERT THE FILE INFORMATION INTO THE DATABASE

@@ -6,8 +6,9 @@ session_start();//START THE SESSION
 REQUIRE_ONCE 'file-upload-util.php'; 
 REQUIRE_ONCE 'connect-to-database.php'; 
 REQUIRE_ONCE 'file-sharing-util.php';
-
 if(isset($_GET['file'], $_GET['uploadDate'], $_GET['uploadTime'], $_GET['receiver'])){
+
+
     // GET THE RECIVER NAME FROM THE URL
     $receiverUID = $_GET['receiver'];
     $getReceiverUID = getUserInformationByUID($connectionObject, $receiverUID);  
@@ -16,7 +17,6 @@ if(isset($_GET['file'], $_GET['uploadDate'], $_GET['uploadTime'], $_GET['receive
     $currentFileInformation = getFileInformationByName($connectionObject, $fileName, $_SESSION["userID"]); 
     //GET THE SENDER NAME 
     $senderUID = $_SESSION["userUID"];
-    $key = "shared"; 
 
 
     //GET THE SHARE INFORMATIONS 
@@ -24,9 +24,13 @@ if(isset($_GET['file'], $_GET['uploadDate'], $_GET['uploadTime'], $_GET['receive
     $receiverID = $getReceiverUID["userID"]; 
     $senderID = $_SESSION["userID"];
 
+    //GET THE RELEVANT FILE PATHS
     $senderFileLocation = __DIR__ . "/../uploads/" . $senderUID . "/encrypted/" . $fileName; 
     $receiverFileLocation = __DIR__ . "/../uploads/" . $receiverUID ."/encrypted/" . $senderUID ."-". $fileName;
-    
+
+    //MALE SURE THAT THE RECEIVER HAS A FOLDER 
+    makeSureDirectoriesArePresent($receiverUID); 
+    //COPY THE FILE FROM THE OWNER DIRECTORY TO THE RECIVER DIRECTORY
     copy($senderFileLocation, $receiverFileLocation); 
     //SAVE THE NEW FILE
     uploadFileSQLRecord($connectionObject, $getReceiverUID["userID"], $senderUID ."-". $fileName,  $currentFileInformation["uploadDate"] , $currentFileInformation["fileSize"],  $currentFileInformation["uploadTime"], $senderUID); 
