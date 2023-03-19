@@ -16,24 +16,23 @@ if(isset($_GET['file'], $_GET['uploadDate'], $_GET['uploadTime'], $_GET['receive
     $currentFileInformation = getFileInformationByName($connectionObject, $fileName, $_SESSION["userID"]); 
     //GET THE SENDER NAME 
     $senderUID = $_SESSION["userUID"];
-
+    $key = "shared"; 
 
 
     //GET THE SHARE INFORMATIONS 
     $fileID = $currentFileInformation["fileID"]; 
     $receiverID = $getReceiverUID["userID"]; 
     $senderID = $_SESSION["userID"];
-    
-    
+
     $senderFileLocation = __DIR__ . "/../uploads/" . $senderUID . "/encrypted/" . $fileName; 
-    $receiverFileLocation = __DIR__ . "/../uploads/" . $receiverUID ."/encrypted/" . $senderUID . $fileName;
+    $receiverFileLocation = __DIR__ . "/../uploads/" . $receiverUID ."/encrypted/" . $senderUID ."-". $fileName;
     
     copy($senderFileLocation, $receiverFileLocation); 
     //SAVE THE NEW FILE
-    uploadFileSQLRecord($connectionObject, $getReceiverUID["userID"], $senderUID . $fileName,  $currentFileInformation["uploadDate"] , $currentFileInformation["fileSize"],  $currentFileInformation["uploadTime"], $senderUID); 
+    uploadFileSQLRecord($connectionObject, $getReceiverUID["userID"], $senderUID ."-". $fileName,  $currentFileInformation["uploadDate"] , $currentFileInformation["fileSize"],  $currentFileInformation["uploadTime"], $senderUID); 
 
     //SAVE THE SHARING INFORMATION 
-    insertShareTransaction($connectionObject, $fileName, $senderUID, $receiverUID); 
+    insertShareTransaction($connectionObject, $senderUID ."-". $fileName, $senderUID, $receiverUID); 
 
     //IF UPLOAD WAS SUCECSSFUL THEN PRINT IT 
     header("location: ../form?error=none");
