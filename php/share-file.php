@@ -9,24 +9,31 @@ REQUIRE_ONCE 'file-sharing-util.php';
 
 if(isset($_GET['file'], $_GET['uploadDate'], $_GET['uploadTime'], $_GET['receiver'])){
     // GET THE RECIVER NAME FROM THE URL
-    $receiverName = $_GET['receiver'];
-    $getReceiverUID = getUserInformationByUID($connectionObject, $receiverName);  
+    $receiverUID = $_GET['receiver'];
+    $getReceiverUID = getUserInformationByUID($connectionObject, $receiverUID);  
     // GET THE FILE NAME FROM THE URL
     $fileName = $_GET['file'];
-    $uploadDate = $_GET['uploadDate'];
-    $uploadTime = $_GET['uploadTime'];
-    $fileSize = $_GET['fileSize'];
+    $currentFileInformation = getFileInformationByName($connectionObject, $fileName, $_SESSION["userID"]); 
     //GET THE SENDER NAME 
-    $senderName = $_SESSION["userUID"];
-    $senderFileLocation = __DIR__ . "/../uploads/" . $senderName . "/encrypted/" . $fileName; 
-    $receiverFileLocation = __DIR__ . "/../uploads/" . $receiverName ."/encrypted/" . $senderName . $fileName;
+    $senderUID = $_SESSION["userUID"];
+
+
+
+    //GET THE SHARE INFORMATIONS 
+    $fileID = $currentFileInformation["fileID"]; 
+    $receiverID = $getReceiverUID["userID"]; 
+    $senderID = $_SESSION["userID"];
+    
+    
+    $senderFileLocation = __DIR__ . "/../uploads/" . $senderUID . "/encrypted/" . $fileName; 
+    $receiverFileLocation = __DIR__ . "/../uploads/" . $receiverUID ."/encrypted/" . $senderUID . $fileName;
     
     copy($senderFileLocation, $receiverFileLocation); 
     //SAVE THE NEW FILE
-    uploadFileSQLRecord($connectionObject, $getReceiverUID["userID"], $senderName . $fileName, $uploadDate , $fileSize, $uploadTime, $senderName); 
+    uploadFileSQLRecord($connectionObject, $getReceiverUID["userID"], $senderUID . $fileName,  $currentFileInformation["uploadDate"] , $currentFileInformation["fileSize"],  $currentFileInformation["uploadTime"], $senderUID); 
 
     //SAVE THE SHARING INFORMATION 
-    insertShareTransaction($connectionObject, $receiverName, $senderName, $fileName); 
+    insertShareTransaction($connectionObject, $fileName, $senderUID, $receiverUID); 
 
     //IF UPLOAD WAS SUCECSSFUL THEN PRINT IT 
     header("location: ../form?error=none");
