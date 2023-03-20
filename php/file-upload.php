@@ -58,7 +58,7 @@ if(isset($_SESSION["userID"])){
         //CREATE AN ARRAY OF SUPPORTED FILE TYPES 
         $fileExt = explode('.', $_FILES['file']['name']); 
         $filesPresentInTheFolder = strtolower(end($fileExt)); 
-        $mime_types = ["gif", "png", "jpeg","jpg", "txt"]; 
+        $mime_types = ["gif","png","jpeg","jpg","txt","mp4","mp3","pdf"]; 
 
         //CHECK QWATHER THE FILE UPLOADED IS PART OF THE ARRAY
         if(!in_array($filesPresentInTheFolder, $mime_types)){

@@ -17,12 +17,12 @@
                 <!-- GET USERNAME OR EMAIL -->
                 <div class="form-group">
                     <label for="">Eamil/Username</label>
-                    <input type="text" name="username "class="form-control">
+                    <input type="text" name="userName" class="form-control">
                 </div>
                 <!-- GET PASSWORD -->
                 <div class="form-group">
                     <label for="">Password</label>
-                    <input type="password" name="pasword" class="form-control">
+                    <input type="password" name="password" class="form-control">
                 </div>
                 <input type="submit" name="submit" class="submit-button" value="Login">
                 <!-- GET THE SCRIPT WITH ALL THE ERROR MESSAGES FOR LOGIN -->

@@ -7,9 +7,10 @@
     border: 1px solid #69696988;
 }
 .file-upload-table{
-    color: white;
+    color: wheat;
     text-align: center;
     margin: auto;
+    margin-top: 20px;
 }
 .file-upload-table td{
     background:#33282824; 
@@ -33,10 +34,28 @@
     letter-spacing: 0.35;
     font-weight: normal;
 }
+.session_information{
+    background-color: rgb(0, 0, 0);
+    width: 200px;
+    padding: 10px;
+    border: 1px solid #a3a3a388;
+}
+.session_information p{
+    text-align: right;
+    margin-top: -10%;
+    color: wheat;
+    text-transform:uppercase; 
+}
 @media (max-width: 768px) {
     .container{
         display: block;
         width: 100%;
+    }
+    .file-upload-table{
+        color: wheat;
+        text-align: center;
+        margin: auto;
+        margin-top: 20px;
     }
     .error-handling{
         width: fit-content;
@@ -54,5 +73,17 @@
         font-size: 20px;
         letter-spacing: 0.35;
         font-weight: normal;  
+    }
+    .session_information{
+        background-color: rgb(0, 0, 0);
+        width: 50%;
+        padding: 15px 5%;
+        border: 1px solid #a3a3a388;
+    }
+    .session_information p{
+        text-align: right;
+        margin-top: -7%;
+        color: wheat;
+        text-transform:uppercase; 
     }
 }

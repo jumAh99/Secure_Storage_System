@@ -18,6 +18,6 @@
         </form>
     </section>
     <!-- GET THE SCRIPT WITH ALL THE ERROR MESSAGES FOR LOGIH -->
-    <?php REQUIRE_ONCE 'template-html-components/signup-error-messages.php'?>>
+    <?php REQUIRE_ONCE 'template-html-components/signup-error-messages.php'?>
 </body>
 </html>

@@ -6,7 +6,7 @@
 .heading{
     font-size: 40px;
     text-align: center;
-    color: #ffffff;
+    color: wheat;
     margin-bottom: 40px;
 }
 .table{
@@ -20,7 +20,7 @@
     font-size: 14px; 
     font-weight: 600;
     letter-spacing: 0.35px;
-    color: #ffdada;
+    color: wheat;
     opacity: 1;
     padding: 12px;
     vertical-align: top;
