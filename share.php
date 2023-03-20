@@ -10,8 +10,8 @@
                 <thead>
                     <!-- TABLE TITLERS -->
                     <tr>
-                        <th width="120">Username</th>
-                        <th width="120">Option</th>
+                        <th>Username</th>
+                        <th>Option</th>
                     </tr>
                 </thead>
                 <tbody>

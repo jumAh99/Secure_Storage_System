@@ -74,7 +74,7 @@ function deleteFile($connectionObject, $fileName, $userID, $destinationPathUser)
     //CHECK IF THE STATEMENT HAS ANY ERRORS
     if(!mysqli_stmt_prepare($sql_prepared_statement, $sql)){
         //SEND USER BACK TO SIGNUP PAGE
-        header("location: ../signup.html?stmtFailed");
+        header("location: ../signup?stmtFailed");
         exit(); 
     }
     //DELETE THE FILE IN THE FOLDER PRESENT IN THE SERVER
