@@ -1,4 +1,4 @@
-<section>
+<section class="error-messages">
     <!--ERROR MESSAGES WHEN SOMETHING GOES WRONG!-->
     <?php
         //IF ERROR MESSAGE EXISTS IN THE URL
