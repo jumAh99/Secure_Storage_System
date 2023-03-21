@@ -9,7 +9,7 @@ $serverPassword="";
 $serverDatabseName = "file_storage_database"; 
 
 //CONNECT TO DATABASE WHICH WILL RETEUN AN OBJ RAPRESENTING THE DATABASE CONNECTION
-$connectionObject = mysqli_connect(hostname:$serverHostName, username:$serverUserName, password:$serverPassword, database:$serverDatabseName); 
+$connectionObject = mysqli_connect($serverHostName, $serverUserName, $serverPassword, $serverDatabseName); 
 
 //MAKE SURE THAT THE CONNECTION HAS BEEN SUCCESSFUL BY CHECKING WEATHER THE CODE WAS 0
 if(mysqli_connect_errno()){

@@ -29,7 +29,7 @@ if(!empty($_GET['file'])){
         header("Cache-Control: public");
         header("Content-Description: File Transfer");
         header("Content-Disposition: attachment; filename=$fileName");
-        header("Content-Type: application/zip");
+        header("Content-Type: application");
         header("Content-Transfer-Encoding: binary");
         //READ THE FILE 
         readfile($decryptedDestinationPathUser);
