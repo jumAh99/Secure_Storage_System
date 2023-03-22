@@ -40,7 +40,11 @@
                     <input type="password" name="repeatPassword" class="form-control">
                 </div>
                 <!-- GET THE INFORMATION TROUGH A SUBMIT INTERACTION -->
-                <input type="submit" name="submit" class="submit-button" value="Register">
+                <input type="submit" name="submit" class="submit-button" value="OK">
+                <!-- ALLOW THE USER TO REGISTER IF THEY HAVE NOT DO SO -->
+                <div class="navigation-link">
+                    <p>Already a user? <a href="login">Login here</a></p>
+                </div>
                 <!-- GET THE SCRIPT WITH ALL THE ERROR MESSAGES FOR LOGIH -->
                 <?php REQUIRE_ONCE 'template-html-components/signup-error-messages.php'?>
             </form>

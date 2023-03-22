@@ -13,8 +13,7 @@
                     <?php
                 }else{
                     ?>
-                        <li><!-- ALLOW THE USER TO LOG OUT --><a href="signup">Register</a></li>
-                        <li><!-- ALLOW THE USER TO GO INTO THE SHARE PAGE --><a href="login">LogIn</a></li>
+                        <li><!-- ALLOW THE USER TO GO INTO THE SHARE PAGE --><a href="login">Log In</a></li>
                     <?php
                 }
             ?>

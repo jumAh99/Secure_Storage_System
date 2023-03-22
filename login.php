@@ -24,7 +24,12 @@
                     <label for="">Password</label>
                     <input type="password" name="password" class="form-control">
                 </div>
-                <input type="submit" name="submit" class="submit-button" value="Login">
+                <!-- GET THE INFORMATION AN PROCCESS THE LOGIN -->
+                <input type="submit" name="submit" class="submit-button" value="OK">
+                <!-- ALLOW THE USER TO REGISTER IF THEY HAVE NOT DO SO -->
+                <div class="navigation-link">
+                    <p>New here? <a href="signup">Register here</a></p>
+                </div>
                 <!-- GET THE SCRIPT WITH ALL THE ERROR MESSAGES FOR LOGIN -->
                 <?php REQUIRE_ONCE 'template-html-components/login-error-messages.php'?>
             </form>

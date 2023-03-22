@@ -8,12 +8,12 @@
                 //IF THE VALUE IS AN EMPTY INPUT
                 case "emptyInput":
                     //PRINT OUT AN HTML PHRAGRAPH THAT CONVEYS THE MISTAKE
-                    echo("<p>YOU HAVE MISSED SOMETHING!</p>"); 
+                    exit("<p>OPS, YOU HAVE MISSED SOMETHING!</p>"); 
                     break; 
                 //IF THE VALUE IS AN EMPTY INPUT
                 case "invalidCredentials":
                     //PRINT OUT AN HTML PHRAGRAPH THAT CONVEYS THE MISTAKE
-                    echo("<p>INCORRECT CREDENTIALS!</p>"); 
+                    exit("<p>OPS, LOOKS LIKE YOU HAVE GIVEN US WRONG DETAILS!</p>"); 
                     break; 
             }
         }

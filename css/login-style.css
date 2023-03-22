@@ -37,6 +37,13 @@
     color:red; 
     text-align: center;
 }
+.navigation-link p{
+    margin-top:10px; 
+    text-align:center; 
+}
+.navigation-link p a{
+    color: red;
+}
 @media (max-width: 768px) {
     .login-form{
         margin: auto;
