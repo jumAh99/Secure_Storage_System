@@ -1,10 +1,11 @@
 .container{
-    background-color: rgb(51, 51, 51);
+    background-color: rgba(15, 15, 15, 0.5);
     width: 70%;
     padding: 1% 5px;
     margin: auto;
     margin-top: 5%;
     border: 1px solid #69696988;
+    text-align: center;
 }
 .file-upload-table{
     color: wheat;
@@ -46,6 +47,15 @@
     color: wheat;
     text-transform:uppercase; 
 }
+.welcome-message h1{
+    text-align: center;
+    padding: 1%;
+    border:2px solid rgba(94, 255, 1, 0.493);
+}
+.welcome-message h1 a{
+    color: red; 
+}
+
 @media (max-width: 768px) {
     .container{
         display: block;
