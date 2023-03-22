@@ -58,7 +58,7 @@ if(isset($_SESSION["userID"])){
         //CREATE AN ARRAY OF SUPPORTED FILE TYPES 
         $fileExt = explode('.', $_FILES['file']['name']); 
         $filesPresentInTheFolder = strtolower(end($fileExt)); 
-        $mime_types = ["gif","png","jpeg","jpg","txt","mp4","mp3","pdf"]; 
+        $mime_types = ["gif","png","jpeg","jpg","txt","mp4","mp3","pdf"];  
 
         //CHECK QWATHER THE FILE UPLOADED IS PART OF THE ARRAY
         if(!in_array($filesPresentInTheFolder, $mime_types)){
@@ -79,10 +79,11 @@ if(isset($_SESSION["userID"])){
         makeSureDirectoriesArePresent($_SESSION["userUID"]); 
         
         $destinationPathUser = __DIR__ . "/../uploads/" . $_SESSION["userUID"] . "/" .  $fileName; 
-        $encryptedDestinationPathUser = __DIR__ . "/../uploads/" . $_SESSION["userUID"] . "/encrypted/" .  $base .".".$pathInfo["extension"]; 
+        $encryptedDestinationPathUser = __DIR__ . "/../uploads/" . $_SESSION["userUID"] . "/encrypted/" .  $fileName; 
         //INSERT THE FILE INFORMATION INTO THE DATABASE
+        date_default_timezone_set("Europe/London");
         $fileDate =  date('Y-m-d'); 
-        $fileTime = date("h:i:s", strtotime('-1 hour'));
+        $fileTime = date("h:i:s");
         $fileSize = round(filesize($_FILES["file"]["tmp_name"])/1024/1024,2); 
 
         //CHECK WEATHER THE FILE NAME ALREADY EXISTS IN THE FOLDER 
