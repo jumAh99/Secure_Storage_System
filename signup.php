@@ -41,12 +41,10 @@
                 </div>
                 <!-- GET THE INFORMATION TROUGH A SUBMIT INTERACTION -->
                 <input type="submit" name="submit" class="submit-button" value="Register">
-                <!-- GET THE SCRIPT WITH ALL THE ERROR MESSAGES FOR LOGIN -->
-                <?php REQUIRE_ONCE 'template-html-components/login-error-messages.php'?>
+                <!-- GET THE SCRIPT WITH ALL THE ERROR MESSAGES FOR LOGIH -->
+                <?php REQUIRE_ONCE 'template-html-components/signup-error-messages.php'?>
             </form>
         </div>
     </section>
-    <!-- GET THE SCRIPT WITH ALL THE ERROR MESSAGES FOR LOGIH -->
-    <?php REQUIRE_ONCE 'template-html-components/signup-error-messages.php'?>
 </body>
 </html>

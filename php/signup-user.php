@@ -32,7 +32,7 @@ if(isset($_POST["submit"])){
     //IF THE EMAIL IS INVALID
     if(invalidEmail($email) !== false){
         //ADD THE ERROR TYPE TO URL SO WE CAN USE THAT AS A MESSAGE
-        header("location: ../signup?invalidEmail");
+        header("location: ../signup?error=invalidEmail");
         exit(); 
     }
     //THE PASSWORD DO NOT MATCH

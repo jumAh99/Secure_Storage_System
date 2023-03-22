@@ -8,36 +8,36 @@
                 //IF THE VALUE IS AN EMPTY INPUT
                 case "emptyInput":
                     //PRINT OUT AN HTML PHRAGRAPH THAT CONVEYS THE MISTAKE
-                    exit("<p>YOU HAVE MISSED SOMETHING!</p>"); 
+                    echo("<p>OPS, YOU HAVE MISSED SOMETHING!</p>"); 
                     break; 
                 //IF THE USERNAME IS IN A INVALID FORMAT
                 case "invalidUsername":
                     //PRINT OUT AN HTML PHRAGRAPH THAT CONVEYS THE MISTAKE
-                    exit("<p>THE USERNAME IS IN AN INCORRECT FORMAT!</p>");
+                    echo("<p>OPS, THE USERNAME IS IN AN INCORRECT FORMAT!</p>");
                     break; 
-                //IF THE EMAIL IS IN A INVALID FORMAT
+                //WRONG EMAIL FORMAT
                 case "invalidEmail":
                     //PRINT OUT AN HTML PHRAGRAPH THAT CONVEYS THE MISTAKE
-                    exit("<p>INVALID EMAIL!</p>");
-                    break; 
+                    echo("<p>OPS, THAT EMAIL DOESNT LOOK RIGHT!</p>"); 
+                    break;  
                 //IF THE USERNAME IS IN A INVALID FORMAT
                 case "passwordDoNotMatch":
                     //PRINT OUT AN HTML PHRAGRAPH THAT CONVEYS THE MISTAKE
-                    exit("<p>THE PASSWORD DOES NOT MATCH!</p>");
+                    echo("<p>OPS, THE PASSWORD DOES NOT MATCH!</p>");
                     break; 
                 //IF THE USERNAME IS IN A INVALID FORMAT
                 case "userAlreadyExists":
                     //PRINT OUT AN HTML PHRAGRAPH THAT CONVEYS THE MISTAKE
-                    exit("<p>THE USERNAME OR EMAI ALREDY EXISTS!</p>");
+                    echo("<p>OPS, THE USERNAME OR EMAIL ALREADY EXISTS!</p>");
                     break; 
                 case "stmtFailed":
                     //THIS ERROR MESSAGE IS TOO TECHINCAL FOR THE USER TO KNOW
-                    exit("<p>SOMETHING WENT WRONT!</p>");
+                    echo("<p>OPS, SOMETHING WENT WRONT!</p>");
                     break;
                 //IF THERE IS NO ERROR MESSAGES  
                 case "none":
                     //THIS ERROR MESSAGE IS TOO TECHINCAL FOR THE USER TO KNOW
-                    exit("<p>LOGIN SUCCESSFUL!</p>");
+                    echo("<p>OPS, LOGIN SUCCESSFUL!</p>");
                     break; 
             }
         }

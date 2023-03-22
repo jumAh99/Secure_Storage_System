@@ -15,6 +15,11 @@
                     //PRINT OUT AN HTML PHRAGRAPH THAT CONVEYS THE MISTAKE
                     echo("<p>NO FILE WAS SELECTED!</p>"); 
                     break; 
+                //WRONG EMAIL FORMAT
+                case "invalidEmail":
+                    //PRINT OUT AN HTML PHRAGRAPH THAT CONVEYS THE MISTAKE
+                    echo("<p>THAT EMAIL DOESNT LOOK RIGHT!</p>"); 
+                    break; 
                 case "err_extension":
                     //PRINT OUT AN HTML PHRAGRAPH THAT CONVEYS THE MISTAKE
                     echo("<p>SOMETHING WENT WRONG!</p>"); 

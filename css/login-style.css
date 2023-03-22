@@ -25,18 +25,7 @@
     color:wheat; 
     text-align: center;
 }
-.submit-button{
-    background-color: rgba(19, 19, 19, 0.575);
-    margin-left: 50%;
-    transform: translateX(-50%);
-    width:120px;
-    height:34px; 
-    border:2px solid rgba(21, 255, 0, 0.39);
-    outline:none; 
-    font-size:16px; 
-    text-transform:uppercase; 
-    color: rgb(0, 255, 0);
-}
+
 .submit-button:hover{
     opacity: 0.7;
     background-color: rgba(61, 61, 61, 0.418);
@@ -62,5 +51,17 @@
     .error-messages{
         margin-top:20px;
         color:red; 
+    }
+    .submit-button{
+        background-color: rgba(19, 19, 19, 0.575);
+        margin-left: 50%;
+        transform: translateX(-50%);
+        width:200px;
+        height:34px; 
+        border:2px solid rgba(21, 255, 0, 0.39);
+        outline:none; 
+        font-size:16px; 
+        text-transform:uppercase; 
+        color: rgb(0, 255, 0);
     }
 }
