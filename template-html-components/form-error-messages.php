@@ -52,6 +52,10 @@
                     //PRINT OUT AN HTML PHRAGRAPH THAT CONVEYS THE MISTAKE
                     echo("<p>NO FILE WAS FOUND, PLEASE TRY AGAIN!</p>"); 
                     break; 
+                case "shareAlreadyDone":
+                    //PRINT OUT AN HTML PHRAGRAPH THAT CONVEYS THE MISTAKE
+                    echo("<p>LOOKS LIKE YOU HAVE ALREDY SHARED THE FILE WITH THIS PERSON!</p>"); 
+                    break; 
             }
         }
     ?>

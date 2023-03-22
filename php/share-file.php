@@ -28,15 +28,22 @@ if(isset($_GET['file'], $_GET['uploadDate'], $_GET['uploadTime'], $_GET['receive
     $senderFileLocation = __DIR__ . "/../uploads/" . $senderUID . "/encrypted/" . $fileName; 
     $receiverFileLocation = __DIR__ . "/../uploads/" . $receiverUID ."/encrypted/" . $senderUID ."-". $fileName;
 
-    //MALE SURE THAT THE RECEIVER HAS A FOLDER 
-    makeSureDirectoriesArePresent($receiverUID); 
-    //COPY THE FILE FROM THE OWNER DIRECTORY TO THE RECIVER DIRECTORY
-    copy($senderFileLocation, $receiverFileLocation); 
-    //SAVE THE NEW FILE
-    uploadFileSQLRecord($connectionObject, $getReceiverUID["userID"], $senderUID ."-". $fileName,  $currentFileInformation["uploadDate"] , $currentFileInformation["fileSize"],  $currentFileInformation["uploadTime"], $senderUID); 
-
-    //SAVE THE SHARING INFORMATION 
-    insertShareTransaction($connectionObject, $senderUID ."-". $fileName, $senderUID, $receiverUID); 
+    //IF THE SHARE RECORD IS NOT PRESENT IN THE DATABASE
+    if(shareAlredyExists($connectionObject, $senderUID ."-". $fileName, $senderUID, $receiverUID) == false){
+        //MALE SURE THAT THE RECEIVER HAS A FOLDER 
+        makeSureDirectoriesArePresent($receiverUID); 
+        //SAVE THE SHARING INFORMATION 
+        insertShareTransaction($connectionObject, $senderUID ."-". $fileName, $senderUID, $receiverUID); 
+        //COPY THE FILE FROM THE OWNER DIRECTORY TO THE RECIVER DIRECTORY
+        copy($senderFileLocation, $receiverFileLocation); 
+        //SAVE THE NEW FILE
+        uploadFileSQLRecord($connectionObject, $getReceiverUID["userID"], $senderUID ."-". $fileName,  $currentFileInformation["uploadDate"] , 
+            $currentFileInformation["fileSize"],  $currentFileInformation["uploadTime"], $senderUID); 
+    }else{
+        //IF UPLOAD WAS SUCECSSFUL THEN PRINT IT 
+        header("location: ../form?error=shareAlreadyDone");
+        exit(); 
+    }
 
     //IF UPLOAD WAS SUCECSSFUL THEN PRINT IT 
     header("location: ../form?error=none");

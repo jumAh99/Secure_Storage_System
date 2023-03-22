@@ -194,7 +194,7 @@ function getUserInformationByID($connectionObject, $userID){
     mysqli_stmt_close($sql_prepared_statement);
 }
 
-function shareAlredyExists($connectionObject, $receiverUID, $senderUID, $fileName){ 
+function shareAlredyExists($connectionObject, $fileName, $senderUID, $receiverUID){ 
     //CONNECT TO THE DATABASE TO CHECK IF THE USER IS PRESENT 
     $sql = "SELECT * FROM tb_file_share_info WHERE fileName=? AND senderUID=? AND receiverUID=?;"; //? IS A PLACEHOLDER
 
@@ -209,7 +209,7 @@ function shareAlredyExists($connectionObject, $receiverUID, $senderUID, $fileNam
         exit(); 
     }
     //MAKE THE CONNECTION
-    mysqli_stmt_bind_param($sql_prepared_statement, "sss" /*type:STRING*/, $receiverUID, $senderUID, $fileName); 
+    mysqli_stmt_bind_param($sql_prepared_statement, "sss" /*type:STRING*/, $fileName, $senderUID, $receiverUID); 
     //EXECUTE THE STATEMENT 
     mysqli_stmt_execute($sql_prepared_statement /* statement we are executing */ ); 
     //GET THE DATA FROM THE DATABASE
@@ -227,10 +227,7 @@ function shareAlredyExists($connectionObject, $receiverUID, $senderUID, $fileNam
     mysqli_stmt_close($sql_prepared_statement); 
 }
 //STORE SHARING RECORDS IN A DATABASE
-function insertShareTransaction($connectionObject, $receiverUID, $senderUID, $fileName){
-    //IF FILE IS NOT ALREDY BEING SAHARED
-    $presentUser = shareAlredyExists($connectionObject, $receiverUID, $senderUID, $fileName);
-
+function insertShareTransaction($connectionObject, $fileName, $senderUID, $receiverUID){
     //MAKE THE SQL QUERY 
     $sql= "INSERT INTO tb_file_share_info (fileName, senderUID, receiverUID) VALUES (?,?,?)";
 
@@ -245,19 +242,12 @@ function insertShareTransaction($connectionObject, $receiverUID, $senderUID, $fi
         header("location: ../form?error=stmtFailed");
         exit(); 
     }
-    //IF SHARE DID NOT HAPPEN
-    if($presentUser == false){
-        //MAKE THE CONNECTION
-        mysqli_stmt_bind_param($sql_prepared_statement, "sss" /*type:STRING*/, $receiverUID, $senderUID, $fileName); 
-        //EXECUTE THE STATEMENT 
-        mysqli_stmt_execute($sql_prepared_statement /* statement we are executing */ ); 
-        //CLOSE THE PREPARED STATEMENT 
-        mysqli_stmt_close($sql_prepared_statement); 
-    }else{
-        //MAKE THE USER GO BACK TO THE LOGIN PAGE SO THEY CAN AUTHENTICATE 
-        header("location: ../form?error=shareAlreadyDone");
-        exit(); 
-    }
+    //MAKE THE CONNECTION
+    mysqli_stmt_bind_param($sql_prepared_statement, "sss" /*type:STRING*/, $fileName, $senderUID, $receiverUID); 
+    //EXECUTE THE STATEMENT 
+    mysqli_stmt_execute($sql_prepared_statement /* statement we are executing */ ); 
+    //CLOSE THE PREPARED STATEMENT 
+    mysqli_stmt_close($sql_prepared_statement); 
 }
 
 //DELETE THE SHARED RECORD WHEN THE USER DELETES THE FILE
