@@ -79,7 +79,7 @@ if(isset($_SESSION["userID"])){
         makeSureDirectoriesArePresent($_SESSION["userUID"]); 
         
         $destinationPathUser = __DIR__ . "/../uploads/" . $_SESSION["userUID"] . "/" .  $fileName; 
-        $encryptedDestinationPathUser = __DIR__ . "/../uploads/" . $_SESSION["userUID"] . "/encrypted/" .  $fileName; 
+        $encryptedDestinationPathUser = __DIR__ . "/../uploads/" . $_SESSION["userUID"] . "/encrypted/" .  $base . ".ENCR"; 
         //INSERT THE FILE INFORMATION INTO THE DATABASE
         $fileDate =  date('Y-m-d'); 
         $fileTime = date("h:i:s", strtotime('-1 hour'));
