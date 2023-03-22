@@ -12,20 +12,32 @@
     width: 100%;
     height: 100%;
     padding: 20px;
-    background-color: rgba(61, 61, 61, 0.507);
+    background-color: rgb(13 13 13);
+    border:2px solid rgb(37 37 37);
     border-radius: 4px;
 }
 .container form .form-control{
     width:100%;
     height:40px;
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(19 19 19);
     border-radius: 4px;
     border:2px solid rgba(94, 255, 1, 0.493);
     margin:10px 0 18px 0;
     color:wheat; 
     text-align: center;
 }
-
+.submit-button{
+    background-color: rgba(19, 19, 19, 0.575);
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width:200px;
+    height:34px; 
+    border:2px solid rgba(21, 255, 0, 0.39);
+    outline:none; 
+    font-size:16px; 
+    text-transform:uppercase; 
+    color: rgb(0, 255, 0);
+}
 .submit-button:hover{
     opacity: 0.7;
     background-color: rgba(61, 61, 61, 0.418);
@@ -42,7 +54,7 @@
     text-align:center; 
 }
 .navigation-link p a{
-    color: red;
+    color: wheat;
 }
 @media (max-width: 768px) {
     .login-form{
@@ -70,5 +82,11 @@
         font-size:16px; 
         text-transform:uppercase; 
         color: rgb(0, 255, 0);
+    }
+    .submit-button:hover{
+        opacity: 0.7;
+        background-color: rgba(61, 61, 61, 0.418);
+        border:2px solid silver;
+        cursor: pointer; 
     }
 }
