@@ -25,6 +25,11 @@
                     //PRINT OUT AN HTML PHRAGRAPH THAT CONVEYS THE MISTAKE
                     echo("<p>OPS, THE PASSWORD DOES NOT MATCH!</p>");
                     break; 
+                //IF THE PASSSWORD SECUIRYT IS POOR
+                case "pwdPoorSecuirity":
+                    //PRINT OUT AN HTML PHRAGRAPH THAT CONVEYS THE MISTAKE
+                    echo("<p>THE PASSWORD MUST BE 8 CHARACTERS LONG, 1 UPPER CASE, 1 NUMBER, 1 SPECIAL CHARACTER</p>");
+                    break;
                 //IF THE USERNAME IS IN A INVALID FORMAT
                 case "userAlreadyExists":
                     //PRINT OUT AN HTML PHRAGRAPH THAT CONVEYS THE MISTAKE

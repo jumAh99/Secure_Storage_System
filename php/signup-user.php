@@ -41,6 +41,12 @@ if(isset($_POST["submit"])){
         header("location: ../signup?error=passwordDoNotMatch");
         exit(); 
     }
+    // IF PASSWORD MATCHES THE SECURIYT PATTERN FORMAT 
+    if(isPasswordSecure($password, $repeatPassword)){
+        //ADD THE ERROR TYPE TO URL SO WE CAN USE THAT AS A MESSAGE
+        header("location: ../signup?error=pwdPoorSecuirity");
+        exit(); 
+    }
     //THE USER ALREADY EXISTS
     if(userAlreadyExists($connectionObject, $username, $email) !== false){
         //ADD THE ERROR TYPE TO URL SO WE CAN USE THAT AS A MESSAGE
