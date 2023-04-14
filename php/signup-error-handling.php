@@ -69,6 +69,8 @@ function isPasswordSecure($password, $repeatPassword){
             $isSomethingWrong = false; 
         }
     }
+    // RETURN THE OUTCOME 
+    return $isSomethingWrong;
 }
 //CHECK IF THE USER IS ALREDY PRESENT IN THE DATABASE
 function userAlreadyExists($connectionObject, $username, $email){ 
