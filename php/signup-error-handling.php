@@ -44,12 +44,32 @@ function invalidPassword($password, $repeatPassword){
     if($password != $repeatPassword){
         //MAKE THE RESULT TRUE BECAUSE THERE IS AN ERROR
         $isSomethingWrong = true; 
+    }else if(!isPasswordSecure($password)){
+        // IF THE PASSWORD IS NOT SECURE
+        $isSomethingWrong = true;
     }else{
         //THERE IS NOTHING WRONG
         $isSomethingWrong = false;
     }
     //RETURN THE VALUE
     return $isSomethingWrong; 
+}
+// SERIES OF TESTS TO VALIDATE THE PASSWORD SECURITY STRENGHT
+function isPasswordSecure($password){
+    // VALIDATE PASSWORD STRENGHT
+    $uppercase = preg_match('@[A-Z]@', $password);
+    $lowercase = preg_match('@[a-z]@', $password);
+    $number    = preg_match('@[0-9]@', $password);
+    $specialChars = preg_match('@[^\w]@', $password);
+
+    // CHECK IF THE PASSED PASSWORD MATCHES THE SECURE PATTERN
+    if(!$uppercase || !$lowercase || !$number || !$specialChars || strlen($password) < 8){
+        // THE PASSWORD DOES NOT MEET THE STANDARDS 
+        return false;
+    }else{
+        // THE PASSWORD MEETS THE STANDARDS
+        return true; 
+    }
 }
 //CHECK IF THE USER IS ALREDY PRESENT IN THE DATABASE
 function userAlreadyExists($connectionObject, $username, $email){ 
