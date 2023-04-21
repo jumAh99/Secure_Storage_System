@@ -10,6 +10,7 @@
                 if(isset($_SESSION["userID"])){
                     ?>
                         <li><!-- ALLOW THE USER TO LOG OUT --><a href="php/logout-user.php">Log Out</a></li>
+                        <li><!-- ALLOW THE USER TO LOG OUT --><a href="friends.php">Friends</a></li>
                     <?php
                 }else{
                     ?>
