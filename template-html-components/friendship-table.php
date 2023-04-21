@@ -35,12 +35,12 @@
                     }else if(!empty($friendTableInformation) && $friendTableInformation['receiverUID'] == $sessionUserUID && $friendTableInformation['senderUID'] == $rows['userUID'] && $friendTableInformation['isFriend'] == true){
                         ?>
                         <!-- LINK THE PRESS TO THE SHARE PHP SCRIP WHERE THE SHARE FUCNTIONALITY WILL OCCUR, PASSING THE APPROPIATE VALUES REQUIRED -->
-                        <a class="options" href="php/friend-request.php?status=REMOVE&receiver=<?php echo $sessionUserUID?>&sender=<?php echo $rows["userUID"]?>">Remove from Friends!</a></td>
+                        <a class="options" href="php/friend-request.php?status=REMOVE&receiver=<?php echo $sessionUserUID?>&sender=<?php echo $rows["userUID"]?>">Currently Sharing</a></td>
                         <?php  
                     }else{
                         ?>
                         <!-- LINK THE PRESS TO THE SHARE PHP SCRIP WHERE THE SHARE FUCNTIONALITY WILL OCCUR, PASSING THE APPROPIATE VALUES REQUIRED -->
-                        <a class="options" href="php/friend-request.php?status=SENT&receiver=<?php echo $rows["userUID"]?>&sender=<?php echo $sessionUserUID ?>">Add</a></td>
+                        <a class="options" href="php/friend-request.php?status=SENT&receiver=<?php echo $rows["userUID"]?>&sender=<?php echo $sessionUserUID ?>">Request Sharing</a></td>
                         <?php  
                     }
                 }else{   
