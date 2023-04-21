@@ -14,6 +14,8 @@
         $run = mysqli_query($connectionObject, $sql);
         //SHOW ALL THE USERS PRESENT THE DATABASE AND LOOP THEM
         while($rows = mysqli_fetch_assoc($run)){
+            // GET ALL DATA IN THE FRIEND TABLE 
+            $friendTableInformation = getFriendInformationByUID($connectionObject, $sessionUserUID, $rows["userUID"]); 
             ?>
             <tr>
                 <!-- SHOW USER NAME -->
@@ -23,11 +25,11 @@
             <?php
                 // IF THE USER HAS NOT SENT A FRIEND REQUEST 
                 if(friendRequestAlredyExists($connectionObject, $sessionUserUID, $rows["userUID"]) == false){
-                    // GET ALL DATA IN THE FRIEND TABLE 
-                    $friendTableInformation = getFriendInformationByUID($connectionObject, $sessionUserUID, $rows["userUID"]); 
                     // IF THE USER HAS A FRIEND REQUEST AND HAS TO ACCEPTED IT
                     if(!empty($friendTableInformation) && $friendTableInformation['receiverUID'] == $sessionUserUID && $friendTableInformation['senderUID'] == $rows['userUID'] && $friendTableInformation['isFriend'] == false){
                         ?>
+                        <!-- LINK THE PRESS TO THE SHARE PHP SCRIP WHERE THE SHARE FUCNTIONALITY WILL OCCUR, PASSING THE APPROPIATE VALUES REQUIRED -->
+                        <p>YOU HAVE A NEW SHARE REQUEST!</p>
                         <!-- LINK THE PRESS TO THE SHARE PHP SCRIP WHERE THE SHARE FUCNTIONALITY WILL OCCUR, PASSING THE APPROPIATE VALUES REQUIRED -->
                         <a class="options" href="php/friend-request.php?status=ACCEPTED&receiver=<?php echo $sessionUserUID?>&sender=<?php echo $rows["userUID"]?>">Accept Request!</a></td>
                         <?php  
@@ -35,7 +37,9 @@
                     }else if(!empty($friendTableInformation) && $friendTableInformation['receiverUID'] == $sessionUserUID && $friendTableInformation['senderUID'] == $rows['userUID'] && $friendTableInformation['isFriend'] == true){
                         ?>
                         <!-- LINK THE PRESS TO THE SHARE PHP SCRIP WHERE THE SHARE FUCNTIONALITY WILL OCCUR, PASSING THE APPROPIATE VALUES REQUIRED -->
-                        <a class="options" href="php/friend-request.php?status=REMOVE&receiver=<?php echo $sessionUserUID?>&sender=<?php echo $rows["userUID"]?>">Currently Sharing</a></td>
+                        <p>YOU ARE SARING FILES WITH THIS USER</p>
+                        <!-- LINK THE PRESS TO THE SHARE PHP SCRIP WHERE THE SHARE FUCNTIONALITY WILL OCCUR, PASSING THE APPROPIATE VALUES REQUIRED -->
+                        <a class="options" href="php/friend-request.php?status=REMOVE&receiver=<?php echo $sessionUserUID?>&sender=<?php echo $rows["userUID"]?>">Stop Sharing</a></td>
                         <?php  
                     }else{
                         ?>
@@ -43,10 +47,12 @@
                         <a class="options" href="php/friend-request.php?status=SENT&receiver=<?php echo $rows["userUID"]?>&sender=<?php echo $sessionUserUID ?>">Request Sharing</a></td>
                         <?php  
                     }
-                }else{   
+                }else{
                     ?>
                     <!-- LINK THE PRESS TO THE SHARE PHP SCRIP WHERE THE SHARE FUCNTIONALITY WILL OCCUR, PASSING THE APPROPIATE VALUES REQUIRED -->
-                    <a class="options" href="php/friend-request.php?status=CANCEL&receiver=<?php echo $rows["userUID"]?>&sender=<?php echo $sessionUserUID ?>">Cancel Request!</a></td>
+                    <p> YOU HAVE REQUESTED TO SHARE</p>
+                    <!-- LINK THE PRESS TO THE SHARE PHP SCRIP WHERE THE SHARE FUCNTIONALITY WILL OCCUR, PASSING THE APPROPIATE VALUES REQUIRED -->
+                    <a class="options" href="php/friend-request.php?status=CANCEL&receiver=<?php echo $rows["userUID"]?>&sender=<?php echo $sessionUserUID ?>">Requesting...</a></td>
                     <?php
                 }
             ?>
