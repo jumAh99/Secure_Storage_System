@@ -6,6 +6,7 @@ session_start();//START THE SESSION
 REQUIRE_ONCE 'file-upload-util.php'; 
 REQUIRE_ONCE 'connect-to-database.php'; 
 REQUIRE_ONCE 'file-sharing-util.php';
+
 if(isset($_GET['file'], $_GET['uploadDate'], $_GET['uploadTime'], $_GET['receiver'])){
 
 
