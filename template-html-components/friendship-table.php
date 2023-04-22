@@ -28,30 +28,30 @@
                     // IF THE USER HAS A FRIEND REQUEST AND HAS TO ACCEPTED IT
                     if(!empty($friendTableInformation) && $friendTableInformation['receiverUID'] == $sessionUserUID && $friendTableInformation['senderUID'] == $rows['userUID'] && $friendTableInformation['isFriend'] == false){
                         ?>
-                        <!-- LINK THE PRESS TO THE SHARE PHP SCRIP WHERE THE SHARE FUCNTIONALITY WILL OCCUR, PASSING THE APPROPIATE VALUES REQUIRED -->
+                        <!-- MESSAGE TO SHOW OUTCOME OF THE FUCNTION -->
                         <p>YOU HAVE A NEW SHARE REQUEST!</p>
-                        <!-- LINK THE PRESS TO THE SHARE PHP SCRIP WHERE THE SHARE FUCNTIONALITY WILL OCCUR, PASSING THE APPROPIATE VALUES REQUIRED -->
+                        <!-- OPTION TO ACCEPT THE REQUEST -->
                         <a class="options" href="php/friend-request.php?status=ACCEPTED&receiver=<?php echo $sessionUserUID?>&sender=<?php echo $rows["userUID"]?>">Accept Request!</a></td>
                         <?php  
                     // IF A USER HAS NOT SENT ANY FRIEND REQUESTS
                     }else if(!empty($friendTableInformation) && $friendTableInformation['receiverUID'] == $sessionUserUID && $friendTableInformation['senderUID'] == $rows['userUID'] && $friendTableInformation['isFriend'] == true){
                         ?>
-                        <!-- LINK THE PRESS TO THE SHARE PHP SCRIP WHERE THE SHARE FUCNTIONALITY WILL OCCUR, PASSING THE APPROPIATE VALUES REQUIRED -->
+                        <!-- MESSAGE TO CONVEY THE OUTCOME OF THE REQUEST -->
                         <p>YOU ARE SARING FILES WITH THIS USER</p>
-                        <!-- LINK THE PRESS TO THE SHARE PHP SCRIP WHERE THE SHARE FUCNTIONALITY WILL OCCUR, PASSING THE APPROPIATE VALUES REQUIRED -->
+                        <!-- OPTION FOR STOP SHARING -->
                         <a class="options" href="php/friend-request.php?status=REMOVE&receiver=<?php echo $sessionUserUID?>&sender=<?php echo $rows["userUID"]?>">Stop Sharing</a></td>
                         <?php  
                     }else{
                         ?>
-                        <!-- LINK THE PRESS TO THE SHARE PHP SCRIP WHERE THE SHARE FUCNTIONALITY WILL OCCUR, PASSING THE APPROPIATE VALUES REQUIRED -->
+                        <!-- OPTION FOR REQUEST SHARING -->
                         <a class="options" href="php/friend-request.php?status=SENT&receiver=<?php echo $rows["userUID"]?>&sender=<?php echo $sessionUserUID ?>">Request Sharing</a></td>
                         <?php  
                     }
                 }else{
                     ?>
-                    <!-- LINK THE PRESS TO THE SHARE PHP SCRIP WHERE THE SHARE FUCNTIONALITY WILL OCCUR, PASSING THE APPROPIATE VALUES REQUIRED -->
+                    <!-- MESSAGE TO SHOW OUTCOME OF THE FUNCTION -->
                     <p> YOU HAVE REQUESTED TO SHARE</p>
-                    <!-- LINK THE PRESS TO THE SHARE PHP SCRIP WHERE THE SHARE FUCNTIONALITY WILL OCCUR, PASSING THE APPROPIATE VALUES REQUIRED -->
+                    <!-- PLACEHOLDER FOR REQUESTING TIME -->
                     <a class="options" href="php/friend-request.php?status=CANCEL&receiver=<?php echo $rows["userUID"]?>&sender=<?php echo $sessionUserUID ?>">Requesting...</a></td>
                     <?php
                 }
