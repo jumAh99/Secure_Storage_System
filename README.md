@@ -5,7 +5,7 @@
   - In the control panel press on the "Admin" button for SQL. 
   - Once you have MyPhpAdmin open for databse import the file_storage_database.sql.
   - Clone this porject in location "C:\xampp\htdocs\". 
-  - Once the project is present press on the Admin option for Apache in your XAMPP control panel. 
+  - Once the project is present press on the "Admin" option for Apache in your XAMPP control panel. 
   - The server should start and bring you to the website. 
   - Follow the instructions from there. 
   
