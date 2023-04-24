@@ -14,9 +14,9 @@
   - Enjoy!
     
 # WHY DID I MAKE THIS
-    - Allow anyone to have a secure storage to store files.
-    - Experiemnt with cloud storage.
-    - Improve my undersatnding on the system processings. 
+  - Allow anyone to have a secure storage to store files.
+  - Experiemnt with cloud storage.
+  - Improve my undersatnding of the cloud system processings. 
     
 # IMPORVE THIS WORK 
   - Encryption: You can add a new and better encryption algorith if you want more protection. 
